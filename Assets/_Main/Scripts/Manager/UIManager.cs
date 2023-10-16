@@ -43,7 +43,42 @@ namespace FC
 
         // Main UI
         // [Header("Sub UIs")]
-        [HideInInspector] public InventoryUI InventoryUI;
+        [HideInInspector] public WorldMapUI WorldMapUI;
+        [HideInInspector] public InventoryUI InventoryUI;  
+        [HideInInspector] public BattleGroundUI BattleGroundUI;
+
+
+
+
+        #region UI State
+
+        public EnumUIState NowState = EnumUIState.WorldMap;
+
+        public void SetState(EnumUIState nextState)
+        {
+            ExitState(NowState);
+
+            NowState = nextState;
+
+            InitState(nextState);
+        }
+
+        private void InitState(EnumUIState state)
+        {
+
+        }
+
+        private void ExitState(EnumUIState state)
+        {
+
+        }
+
+
+
+        #endregion
+
+
+
 
 
 
@@ -110,8 +145,15 @@ namespace FC
         public IEnumerator InitRoutine()
         {
 
+            WorldMapUI = FindObjectOfType<WorldMapUI>(true);
+            WorldMapUI.Init();
+            
             InventoryUI = FindObjectOfType<InventoryUI>(true);
             InventoryUI.Init();
+
+
+            BattleGroundUI = FindObjectOfType<BattleGroundUI>(true);
+            BattleGroundUI.Init();
 
 
 

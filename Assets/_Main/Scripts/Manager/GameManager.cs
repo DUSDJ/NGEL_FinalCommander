@@ -74,16 +74,15 @@ namespace FC
             // 글로벌 화면 즉시 암전
             UIManager.Instance.InstantFade(false);
 
-            // Load Manager (Not Login Data)
-            /* DataBase - Firebase 로그인보다 먼저 (Data load함) */
-            // yield return Database.Instance.InitRoutine();
+            // Load Manager
+            /* DataBase */
+            yield return Database.Instance.InitRoutine();
 
             /* Audio Manager */
-            // yield return AudioManager.Instance.InitRoutine();
+            yield return AudioManager.Instance.InitRoutine();
 
             /* Effect Manager */
-            // yield return EffectManager.Instance.InitRoutine();
-
+            yield return EffectManager.Instance.InitRoutine();
 
             /* UI Manager */
             yield return UIManager.Instance.InitRoutine();
