@@ -58,15 +58,31 @@ namespace FC
 
         public void OnClickElement()
         {
-            var parent = UIManager.Instance.InventoryUI;
-
-            if (SelectFrame.activeSelf == true)
+            if(Data == null)
             {
-                parent.CleanSelection();
+                return;
             }
-            else
+
+
+            if (UIManager.Instance.NowState == EnumUIState.WorldMap)
             {
-                parent.CheckHeroCanThreeMerge(this);
+                var parent = UIManager.Instance.InventoryUI;
+
+                if (SelectFrame.activeSelf == true)
+                {
+                    parent.CleanSelection();
+                }
+                else
+                {
+                    parent.CheckHeroCanThreeMerge(this);
+                }
+
+
+            }
+            else if(UIManager.Instance.NowState == EnumUIState.BattleGround)
+            {
+                var parent = UIManager.Instance.BattleGroundUI;
+                parent.AddHeroToElement(this);
             }            
         }
     }

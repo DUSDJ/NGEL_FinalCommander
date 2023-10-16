@@ -10,7 +10,7 @@ namespace FC
 
         public void Init()
         {
-            SetUI(true);
+
         }
 
 
@@ -37,10 +37,6 @@ namespace FC
             if(UIManager.Instance.NowState == EnumUIState.WorldMap)
             {
                 UIManager.Instance.SetState(EnumUIState.BattleGround);
-
-
-                SetUI(false);
-                UIManager.Instance.BattleGroundUI.SetUI(true);
             }            
         }
 

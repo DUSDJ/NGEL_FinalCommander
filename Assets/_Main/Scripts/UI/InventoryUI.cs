@@ -10,11 +10,14 @@ namespace FC
         public GameObject HeroInfoButton;
         public GameObject MergeButton;
 
+        public GameObject BGCleanButton;
+        public GameObject BGEnageButton;
+
 
         public List<ElementInventoryHero> ElementList = new List<ElementInventoryHero>();
 
         private List<ElementInventoryHero> selectedElements = new List<ElementInventoryHero>();
-        
+
 
 
 
@@ -25,9 +28,6 @@ namespace FC
                 ElementList[i].Clean();
             }
 
-            CreationButton.SetActive(true);
-            HeroInfoButton.SetActive(false);
-            MergeButton.SetActive(false);
         }
 
 
@@ -35,7 +35,7 @@ namespace FC
         {
             for (int i = 0; i < ElementList.Count; i++)
             {
-                if(ElementList[i].Data == null)
+                if (ElementList[i].Data == null)
                 {
                     return ElementList[i];
                 }
@@ -87,22 +87,22 @@ namespace FC
                 var e = ElementList[i];
                 e.SetSelect(false);
 
-                if(e.Data == null)
+                if (e.Data == null)
                 {
                     continue;
                 }
 
-                if(e == baseElem)
+                if (e == baseElem)
                 {
                     continue;
                 }
 
-                if(e.Data.Key == baseElem.Data.Key)
+                if (e.Data.Key == baseElem.Data.Key)
                 {
                     if (findList.Count < Database.Instance.HeroNeedToMerge - 1)
                     {
                         findList.Add(ElementList[i]);
-                    }                    
+                    }
                 }
             }
 
@@ -121,7 +121,7 @@ namespace FC
                     findList[i].SetSelect(true);
 
                     selectedElements.Add(findList[i]);
-                }               
+                }
             }
         }
 
@@ -134,11 +134,11 @@ namespace FC
         #region OnClick Event
 
         public void OnClickBtnCreation()
-        {            
+        {
             var e = GetEmptyElement();
 
             // 빈 칸 있음 : 뽑기 가능
-            if(e != null)
+            if (e != null)
             {
                 var data = Database.Instance.GetHeroDataByTier(EnumHeroTier.Tier_1);
 
@@ -154,7 +154,7 @@ namespace FC
 
         public void OnClickBtnMerge()
         {
-            if(selectedElements.Count < Database.Instance.HeroNeedToMerge)
+            if (selectedElements.Count < Database.Instance.HeroNeedToMerge)
             {
                 Debug.LogError($"{Database.Instance.HeroNeedToMerge}개가 선택되어있지 않음");
                 return;
@@ -172,7 +172,7 @@ namespace FC
             }
 
             CleanSelected();
-            
+
             switch (nowTier)
             {
                 case EnumHeroTier.Tier_1:
@@ -191,6 +191,49 @@ namespace FC
 
             // 결과물 Element를 단독 Select하기
             newElement.OnClickElement();
+        }
+
+
+
+        public void OnClickBGCleanButton()
+        {
+            UIManager.Instance.BattleGroundUI.CleanElements();
+        }
+
+
+        public void OnClickBGEngageButton()
+        {
+
+        }
+
+        #endregion
+
+
+
+        #region Set State
+
+        public void SetStateWorldMap()
+        {
+            CreationButton.SetActive(true);
+            HeroInfoButton.SetActive(false);
+            MergeButton.SetActive(false);
+
+            CleanSelected();
+
+            BGCleanButton.SetActive(false);
+            BGEnageButton.SetActive(false);
+        }
+
+        public void SetStateBattleGround()
+        {
+            CreationButton.SetActive(false);
+            HeroInfoButton.SetActive(false);
+            MergeButton.SetActive(false);
+
+            CleanSelected();
+
+            BGCleanButton.SetActive(true);
+            BGEnageButton.SetActive(true);
         }
 
         #endregion

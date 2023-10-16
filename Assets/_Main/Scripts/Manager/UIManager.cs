@@ -65,7 +65,23 @@ namespace FC
 
         private void InitState(EnumUIState state)
         {
+            switch (state)
+            {
+                case EnumUIState.WorldMap:
+                    WorldMapUI.SetUI(true);
+                    BattleGroundUI.SetUI(false);
 
+                    InventoryUI.SetStateWorldMap();
+                    break;
+
+
+                case EnumUIState.BattleGround:
+                    WorldMapUI.SetUI(false);
+                    BattleGroundUI.SetUI(true);
+
+                    InventoryUI.SetStateBattleGround();
+                    break;
+            }
         }
 
         private void ExitState(EnumUIState state)
@@ -156,6 +172,7 @@ namespace FC
             BattleGroundUI.Init();
 
 
+            SetState(EnumUIState.WorldMap);
 
             yield return null;
         }
