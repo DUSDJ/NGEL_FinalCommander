@@ -155,6 +155,9 @@ namespace FC
                 int elemental = UnityEngine.Random.Range(0, 2 + 1);
                 var data = Database.Instance.GetHeroDataByTier(EnumHeroTier.Tier_1, level, elemental);                
                 e.SetElement(data);
+
+                // 골드 깜
+                GameManager.Instance.Gold -= Database.Instance.CreationCost;
             }
             // 빈 칸 없음 : 봅기 불가
             else

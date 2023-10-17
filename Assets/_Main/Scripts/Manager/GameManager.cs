@@ -58,6 +58,11 @@ namespace FC
             }
             set 
             {
+                if(value <= 0)
+                {
+                    value = 0;
+                }
+
                 gold = value;
                 UIManager.Instance?.InventoryUI?.UpdateGold(value);
             }
