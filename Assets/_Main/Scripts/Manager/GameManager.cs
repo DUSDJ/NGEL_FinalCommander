@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 namespace FC
@@ -44,6 +45,26 @@ namespace FC
         private IEnumerator mainRoutine;
 
         private bool isInit = false;
+
+
+
+        [Header("골드")]
+        public long gold = 10000;
+        public long Gold
+        {
+            get
+            {
+                return gold;
+            }
+            set 
+            {
+                gold = value;
+                UIManager.Instance?.InventoryUI?.UpdateGold(value);
+            }
+        }
+
+        [Header("초당 획득 골드")]
+        public long Income = 30;        
 
 
         #region Awake & Init
@@ -96,15 +117,27 @@ namespace FC
 
 
             // Field 
-            // mainRoutine = FieldRoutine();
-            // StartCoroutine(mainRoutine);
+            mainRoutine = MainRoutine();
+            StartCoroutine(mainRoutine);
 
             Debug.Log("Init End!");
 
             yield return null;
         }
 
-        
+        private IEnumerator MainRoutine()
+        {
+            var wait = new WaitForSeconds(1.0f);
+
+            while (true)
+            {
+                Debug.Log(DateTime.Now.ToString("HH:mm:ss"));
+
+                Gold += Income;
+                yield return wait;
+            }
+
+        }
         
         #endregion
 

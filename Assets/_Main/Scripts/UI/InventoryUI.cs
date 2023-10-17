@@ -1,11 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace FC
 {
     public class InventoryUI : MonoBehaviour
     {
+        public TextMeshProUGUI GoldText;
+
+        public void UpdateGold(long value)
+        {
+            GoldText.text = string.Format("{0}", value);
+        }
+
+
         public GameObject CreationButton;
         public GameObject HeroInfoButton;
         public GameObject MergeButton;
@@ -21,13 +30,15 @@ namespace FC
 
 
 
+
+
+
         public void Init()
         {
             for (int i = 0; i < ElementList.Count; i++)
             {
                 ElementList[i].Clean();
             }
-
         }
 
 

@@ -42,6 +42,9 @@ namespace FC
         [Header("머지에 필요한 영웅 수")]
         public int HeroNeedToMerge = 2;
 
+        [Header("크리에이션 비용")]
+        public long CreationCost = 100;
+
 
 
         public List<ScriptableHeroData> HeroData = new List<ScriptableHeroData>();
