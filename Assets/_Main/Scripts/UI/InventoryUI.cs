@@ -230,6 +230,9 @@ namespace FC
 
             // 결과물 Element를 단독 Select하기
             newElement.OnClickElement();
+
+            // Effect
+            EffectManager.Instance.SetEffect("Effect_LevelUp_2", newElement.transform.position);
         }
 
 
