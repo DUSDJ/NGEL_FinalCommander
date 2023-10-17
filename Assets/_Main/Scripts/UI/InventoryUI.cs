@@ -211,9 +211,12 @@ namespace FC
         }
 
 
+        /// <summary>
+        /// [출격하기] 버튼
+        /// </summary>
         public void OnClickBGEngageButton()
         {
-
+            UIManager.Instance.BattleGroundUI.Engage();
         }
 
         #endregion

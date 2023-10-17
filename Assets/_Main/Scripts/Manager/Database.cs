@@ -121,6 +121,10 @@ namespace FC
 
 
 
+        public Dictionary<string, Hero> HeroPrefabDic;
+
+
+
 
         private void Awake()
         {
@@ -142,6 +146,9 @@ namespace FC
 
         public IEnumerator InitRoutine()
         {
+            yield return SetHeroPrefabDic();
+
+
             yield return null;
         }
 
@@ -156,6 +163,32 @@ namespace FC
             copy.Level = level;
             copy.Elemental = elemental;
             return copy;
+        }
+
+
+        private IEnumerator SetHeroPrefabDic()
+        {
+            if (HeroPrefabDic == null)
+            {
+                Debug.Log("SetHeroPrefabDic");
+                HeroPrefabDic = new Dictionary<string, Hero>();
+
+                var prefabs = Resources.LoadAll<Hero>("HeroPrefab");
+                for (int i = 0; i < prefabs.Length; i++)
+                {
+                    var e = prefabs[i];
+                    if (!HeroPrefabDic.ContainsKey(e.name))
+                    {
+                        var name = e.name.Split('_')[1];
+                        HeroPrefabDic.Add(name, e);
+
+                        Debug.Log("HeroPrefabDic Add : " + name);
+                    }
+
+                }
+            }
+
+            yield return null;
         }
 
 

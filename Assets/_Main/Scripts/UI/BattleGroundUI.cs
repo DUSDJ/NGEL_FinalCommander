@@ -143,5 +143,41 @@ namespace FC
         }
 
 
+
+        /// <summary>
+        /// 출격하기
+        /// </summary>
+        public void Engage()
+        {
+            // 하단 인벤토리에서 영웅 제거됨 (이펙트)
+            for (int i = 0; i < selectedElements.Count; i++)
+            {
+                // 상단 배치에 프리팹 생성됨
+                var pos = GetEmptyPosition();
+                if (pos != null)
+                {
+                    pos.SetElement(selectedElements[i].Data);
+                }
+
+                selectedElements[i].Clean();
+            }
+            selectedElements.Clear();            
+        }
+
+
+        private ElementBattleGroundPosition GetEmptyPosition()
+        {
+            var list = PositionList;
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i].Data == null)
+                {
+                    return list[i];
+                }
+            }
+
+            return null;
+        }
+
     }
 }
