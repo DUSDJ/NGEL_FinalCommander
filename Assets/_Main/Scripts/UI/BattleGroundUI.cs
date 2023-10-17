@@ -119,6 +119,11 @@ namespace FC
 
         public void CleanElements()
         {
+            for (int i = 0; i < PositionList.Count; i++)
+            {
+                PositionList[i].Clean();
+            }
+
             for (int i = 0; i < ElementList.Count; i++)
             {
                 ElementList[i].Clean();
