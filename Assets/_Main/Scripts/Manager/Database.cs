@@ -174,7 +174,9 @@ namespace FC
             var find = HeroData.FindAll((x) => x.Tier == tier).ToList();
             int rand = UnityEngine.Random.Range(0, find.Count);
 
-            var copy = new ScriptableHeroData(find[rand]);
+
+            var copy = ScriptableObject.CreateInstance<ScriptableHeroData>();
+            copy.Copy(find[rand]);
             copy.Level = level;
             copy.Elemental = elemental;
             return copy;

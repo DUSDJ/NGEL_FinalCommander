@@ -40,5 +40,17 @@ namespace FC
             Camp = copy.Camp;
         }
 
+        public void Copy(ScriptableHeroData copy)
+        {
+            Tier = copy.Tier;
+            Key = copy.Key;
+            Name = copy.Name;
+            PortraitSprite = copy.PortraitSprite;
+
+            Level = 1;
+            Elemental = 0;
+            Camp = copy.Camp;
+        }
+
     }
 }
