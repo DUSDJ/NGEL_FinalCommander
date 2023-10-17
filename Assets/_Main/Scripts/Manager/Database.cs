@@ -52,6 +52,10 @@ namespace FC
         {
             public Sprite Tier_1;
             public Sprite Tier_2;
+            public Sprite Tier_3;
+            public Sprite Tier_4;
+            public Sprite Tier_5;
+            public Sprite Tier_6;
         }
         public StructTierImage TierImages;
 
@@ -64,6 +68,14 @@ namespace FC
                     return TierImages.Tier_1;
                 case EnumHeroTier.Tier_2:
                     return TierImages.Tier_2;
+                case EnumHeroTier.Tier_3:
+                    return TierImages.Tier_3;
+                case EnumHeroTier.Tier_4:
+                    return TierImages.Tier_4;
+                case EnumHeroTier.Tier_5:
+                    return TierImages.Tier_5;
+                case EnumHeroTier.Tier_6:
+                    return TierImages.Tier_6;
             }
 
             return TierImages.Tier_1;

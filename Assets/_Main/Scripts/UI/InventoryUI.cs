@@ -189,7 +189,19 @@ namespace FC
                     nextTier = EnumHeroTier.Tier_2;
                     break;
                 case EnumHeroTier.Tier_2:
-                    nextTier = EnumHeroTier.Tier_2;
+                    nextTier = EnumHeroTier.Tier_3;
+                    break;
+                case EnumHeroTier.Tier_3:
+                    nextTier = EnumHeroTier.Tier_4;
+                    break;
+                case EnumHeroTier.Tier_4:
+                    nextTier = EnumHeroTier.Tier_5;
+                    break;
+                case EnumHeroTier.Tier_5:
+                    nextTier = EnumHeroTier.Tier_6;
+                    break;
+                case EnumHeroTier.Tier_6:
+                    nextTier = EnumHeroTier.Tier_6;
                     break;
             }
 
