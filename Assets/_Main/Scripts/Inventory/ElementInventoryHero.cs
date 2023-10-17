@@ -31,7 +31,7 @@ namespace FC
             var db = Database.Instance;
 
             PortraitImage.sprite = heroData.PortraitSprite;
-            // TierImage.sprite = db.GetTierImage(heroData.Tier);
+            TierImage.sprite = db.GetTierImage(heroData.Tier);
 
             // NameText.text = heroData.Name;
 
