@@ -158,6 +158,9 @@ namespace FC
 
                 // 골드 깜
                 GameManager.Instance.Gold -= Database.Instance.CreationCost;
+
+                // Effect
+                EffectManager.Instance.SetEffect("Effect_LevelUp", e.transform.position);
             }
             // 빈 칸 없음 : 봅기 불가
             else
