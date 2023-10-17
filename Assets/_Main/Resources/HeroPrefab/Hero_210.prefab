@@ -10,13 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 253743706486531063}
   - component: {fileID: 5720929859468017554}
+  - component: {fileID: -453827891652879871}
   m_Layer: 5
   m_Name: Hero_210
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &253743706486531063
 RectTransform:
   m_ObjectHideFlags: 0
@@ -50,6 +51,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77eaa021869fe7a408d321279dd5ea66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &-453827891652879871
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253743706486531062}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b847c25daa53f674cbf36f6f6bdcd77b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &253743707931315032
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,7 +150,7 @@ SpriteRenderer:
   m_SortingLayerID: -745099623
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 69e535071ff18ed4c8f535ddd9b91e3e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
