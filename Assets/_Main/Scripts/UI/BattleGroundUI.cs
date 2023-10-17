@@ -162,6 +162,9 @@ namespace FC
                 if (pos != null)
                 {
                     pos.SetElement(selectedElements[i].Data);
+
+                    // Effect
+                    EffectManager.Instance.SetEffect("Effect_Teleport", pos.transform.position);
                 }
 
                 selectedElements[i].Clean();
