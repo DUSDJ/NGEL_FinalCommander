@@ -16,6 +16,11 @@ namespace FC
         public Image PortraitImage;
         public Image TierImage;
         public TextMeshProUGUI NameText;
+
+        public TextMeshProUGUI LevelText;
+        public Image ElementalImage;
+        
+        public Image CampImage;
         
 
 
@@ -29,6 +34,11 @@ namespace FC
             // TierImage.sprite = db.GetTierImage(heroData.Tier);
 
             // NameText.text = heroData.Name;
+
+            LevelText.text = string.Format("Lv.{0}", heroData.Level);
+            ElementalImage.sprite = db.GetElementalImage(heroData.Elemental);
+
+            CampImage.sprite = db.GetCampImage(heroData.Camp);
 
             ActivationObject.SetActive(true);            
         }

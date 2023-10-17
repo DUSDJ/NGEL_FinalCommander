@@ -107,7 +107,7 @@ namespace FC
             }
 
 
-            // Base는 일단 Select
+            // Base는 일단 Select (selectedElements[0]가 base다)
             baseElem.SetSelect(true);
             selectedElements.Add(baseElem);
 
@@ -140,8 +140,9 @@ namespace FC
             // 빈 칸 있음 : 뽑기 가능
             if (e != null)
             {
-                var data = Database.Instance.GetHeroDataByTier(EnumHeroTier.Tier_1);
-
+                int level = UnityEngine.Random.Range(1, 25 + 1);
+                int elemental = UnityEngine.Random.Range(0, 2 + 1);
+                var data = Database.Instance.GetHeroDataByTier(EnumHeroTier.Tier_1, level, elemental);                
                 e.SetElement(data);
             }
             // 빈 칸 없음 : 봅기 불가
@@ -163,10 +164,19 @@ namespace FC
             EnumHeroTier nowTier = EnumHeroTier.Tier_1;
             EnumHeroTier nextTier = EnumHeroTier.Tier_2;
 
+            int selectedElemental = 0;
+            int mergeLevel = 0;
             for (int i = 0; i < selectedElements.Count; i++)
             {
                 var e = selectedElements[i];
 
+                if(i == 0)
+                {
+                    selectedElemental = e.Data.Elemental;
+                }
+                
+
+                mergeLevel += e.Data.Level;
                 nowTier = e.Data.Tier;
                 e.Clean();
             }
@@ -184,7 +194,7 @@ namespace FC
             }
 
 
-            var data = Database.Instance.GetHeroDataByTier(nextTier);
+            var data = Database.Instance.GetHeroDataByTier(nextTier, mergeLevel, selectedElemental);
 
             var newElement = GetEmptyElement();
             newElement.SetElement(data);

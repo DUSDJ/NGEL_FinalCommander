@@ -4654,6 +4654,17 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dcf6aea4b0cdeeb4f84d74ba3adc0c1c, type: 2}
   - {fileID: 11400000, guid: 9eab781fcd44fb54492eb4731d5afc4d, type: 2}
   - {fileID: 11400000, guid: 25ed436f3b003254291cfe4101de4d65, type: 2}
+  TierImages:
+    Tier_1: {fileID: 0}
+    Tier_2: {fileID: 0}
+  ElementalImages:
+    Elemental_0: {fileID: 21300000, guid: 707b8bb028cadf54c880285addf7c590, type: 3}
+    Elemental_1: {fileID: 21300000, guid: 2719b28ca34758049bab95cc98d766ad, type: 3}
+    Elemental_2: {fileID: 21300000, guid: 8b937f1a21379bf4397c0b2e76e47ea9, type: 3}
+  CampImages:
+    Camp_0_Union: {fileID: 21300000, guid: 1e9d978d073edb64eae5b3ed7234cac3, type: 3}
+    Camp_1_Demic: {fileID: 21300000, guid: f633be9f1e61c474d9b5d87a1387163d, type: 3}
+    Camp_2_Axis: {fileID: 21300000, guid: 8df3bab3fabc4894a88a487ad12eb3c0, type: 3}
 --- !u!1001 &1039236185
 PrefabInstance:
   m_ObjectHideFlags: 0

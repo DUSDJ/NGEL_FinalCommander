@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,6 +46,8 @@ namespace FC
 
         public List<ScriptableHeroData> HeroData = new List<ScriptableHeroData>();
 
+
+        [Serializable]
         public struct StructTierImage
         {
             public Sprite Tier_1;
@@ -65,6 +68,57 @@ namespace FC
 
             return TierImages.Tier_1;
         }
+
+        [Serializable]
+        public struct StructElementalImage
+        {
+            public Sprite Elemental_0;
+            public Sprite Elemental_1;
+            public Sprite Elemental_2;
+        }
+        public StructElementalImage ElementalImages;
+
+
+        public Sprite GetElementalImage(int elemental)
+        {
+            switch (elemental)
+            {
+                case 0:
+                    return ElementalImages.Elemental_0;
+                case 1:
+                    return ElementalImages.Elemental_1;
+                case 2:
+                    return ElementalImages.Elemental_2;
+            }
+
+            return ElementalImages.Elemental_0;
+        }
+
+        [Serializable]
+        public struct StructCampImage
+        {
+            public Sprite Camp_0_Union;
+            public Sprite Camp_1_Demic;
+            public Sprite Camp_2_Axis;
+        }
+        public StructCampImage CampImages;
+
+
+        public Sprite GetCampImage(EnumHeroCamp camp)
+        {
+            switch (camp)
+            {
+                case EnumHeroCamp.Union:
+                    return CampImages.Camp_0_Union;
+                case EnumHeroCamp.Demic:
+                    return CampImages.Camp_1_Demic;
+                case EnumHeroCamp.Axis:
+                    return CampImages.Camp_2_Axis;
+            }
+
+            return CampImages.Camp_0_Union;
+        }
+
 
 
 
@@ -93,12 +147,15 @@ namespace FC
 
 
 
-        public ScriptableHeroData GetHeroDataByTier(EnumHeroTier tier)
+        public ScriptableHeroData GetHeroDataByTier(EnumHeroTier tier, int level, int elemental)
         {
             var find = HeroData.FindAll((x) => x.Tier == tier).ToList();
             int rand = UnityEngine.Random.Range(0, find.Count);
 
-            return find[rand];
+            var copy = new ScriptableHeroData(find[rand]);
+            copy.Level = level;
+            copy.Elemental = elemental;
+            return copy;
         }
 
 
