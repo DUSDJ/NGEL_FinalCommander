@@ -1,17 +1,29 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace FC
 {
     public class WorldMapUI : MonoBehaviour
     {
-        
+        [HideInInspector] public List<ElementLocation> LocationList;
+
+
 
         public void Init()
         {
+            LocationList = new List<ElementLocation>();
+            LocationList = FindObjectsOfType<ElementLocation>(false).ToList();
 
+            for (int i = 0; i < LocationList.Count; i++)
+            {
+                LocationList[i].Init();
+            }
         }
+
+
 
 
         public void SetUI(bool onOff)
@@ -28,14 +40,26 @@ namespace FC
 
 
 
+        public void UpdateLocation()
+        {
+            for (int i = 0; i < LocationList.Count; i++)
+            {
+                LocationList[i].UpdateRoutine();
+            }
+
+        }
+
+
 
         /// <summary>
-        /// 그냥 전장으로 이동됨
+        /// 지역 데이터를 반영하여
+        /// 전장으로 이동
         /// </summary>
-        public void OnClickLocation()
+        public void OnClickLocation(ElementLocation e)
         {
             if(UIManager.Instance.NowState == EnumUIState.WorldMap)
             {
+                UIManager.Instance.BattleGroundUI.SelectedLocation = e;
                 UIManager.Instance.SetState(EnumUIState.BattleGround);
             }            
         }
