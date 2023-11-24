@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3510501559736650183
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3510501559736650182}
+  - component: {fileID: 3510501559736650201}
+  m_Layer: 0
+  m_Name: Database
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3510501559736650182
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3510501559736650183}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3510501559736650201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3510501559736650183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9725609fb71bbc540afc489f6391e5b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HeroNeedToMerge: 2
+  CreationCost: 250
+  HeroData:
+  - {fileID: 11400000, guid: 3019ff6da821fb84f9a2e6a168f86d48, type: 2}
+  - {fileID: 11400000, guid: af6ff986f548f58458cd4b994a937327, type: 2}
+  - {fileID: 11400000, guid: 7a479654f7d919b4cb65ee74c0be39a7, type: 2}
+  - {fileID: 11400000, guid: a5ab56a6f2cb5784fbd52ad64abbfbd3, type: 2}
+  - {fileID: 11400000, guid: 5859217297168a04dacb3c9d63aadc6a, type: 2}
+  - {fileID: 11400000, guid: ce3e22bc3d855b0488888be98f8857c5, type: 2}
+  - {fileID: 11400000, guid: 13a77f43e1a6ebd45bb7551b128fce74, type: 2}
+  - {fileID: 11400000, guid: 0304f1a0940ec554d9c64f235bd2a286, type: 2}
+  - {fileID: 11400000, guid: 41c460ff456d994408649f221ea4c9da, type: 2}
+  - {fileID: 11400000, guid: dcf6aea4b0cdeeb4f84d74ba3adc0c1c, type: 2}
+  - {fileID: 11400000, guid: 9eab781fcd44fb54492eb4731d5afc4d, type: 2}
+  - {fileID: 11400000, guid: 25ed436f3b003254291cfe4101de4d65, type: 2}
+  - {fileID: 11400000, guid: e9246d90c3da9ec489a15d9df64162dd, type: 2}
+  - {fileID: 11400000, guid: 00686667e9d0e79448380ef3ee6a7129, type: 2}
+  - {fileID: 11400000, guid: ece30a644500f5a4794ef4ddacf0a018, type: 2}
+  - {fileID: 11400000, guid: 287084b05c89df6458615b5688024718, type: 2}
+  - {fileID: 11400000, guid: df69ccc7a858b754194f2ed0dc0fff6a, type: 2}
+  - {fileID: 11400000, guid: 188bb480bc63ced43aea82b86f42347b, type: 2}
+  - {fileID: 11400000, guid: 17051b63278f89b4293d7e0ba8a07ff9, type: 2}
+  - {fileID: 11400000, guid: 211888cbbc8ecef4ea05bbfe3fca52db, type: 2}
+  - {fileID: 11400000, guid: 411284ffc9fe64542b3d26f078ab3205, type: 2}
+  - {fileID: 11400000, guid: 601c207fc910e8449a447d8d49db64c7, type: 2}
+  - {fileID: 11400000, guid: 27f5748541e05554d82d6b713f05fc25, type: 2}
+  - {fileID: 11400000, guid: 68182f2f370f23547aa9378a72776fce, type: 2}
+  - {fileID: 11400000, guid: 070cbd0483fe02040ad8d9251c8a7331, type: 2}
+  - {fileID: 11400000, guid: 71db5f8c1ee32714c99db326ba639eb5, type: 2}
+  - {fileID: 11400000, guid: 7bf674bf94d6ec9418d927b0694269f8, type: 2}
+  - {fileID: 11400000, guid: 7e4237003cebc494b8b0d00572fb1a3c, type: 2}
+  - {fileID: 11400000, guid: e23a202fbb8db2d44a1ddeae7484d5d3, type: 2}
+  - {fileID: 11400000, guid: 46273bc9898d77243bd58a6374d44861, type: 2}
+  TierImages:
+    Tier_1: {fileID: 21300000, guid: e61ddd616f42b9445b22508867445330, type: 3}
+    Tier_2: {fileID: 21300000, guid: 73926b92624c0e248827e7905614c8a2, type: 3}
+    Tier_3: {fileID: 21300000, guid: 3bd6e3133d731874b9b7845c97344d88, type: 3}
+    Tier_4: {fileID: 21300000, guid: 0b59d5fedb76d7f42b53bb5a6f4c4221, type: 3}
+    Tier_5: {fileID: 21300000, guid: 51b862a7cc2bfae4488fb6a2bbb0cb8f, type: 3}
+    Tier_6: {fileID: 21300000, guid: 51b862a7cc2bfae4488fb6a2bbb0cb8f, type: 3}
+  ElementalImages:
+    Elemental_0: {fileID: 21300000, guid: 707b8bb028cadf54c880285addf7c590, type: 3}
+    Elemental_1: {fileID: 21300000, guid: 2719b28ca34758049bab95cc98d766ad, type: 3}
+    Elemental_2: {fileID: 21300000, guid: 8b937f1a21379bf4397c0b2e76e47ea9, type: 3}
+  CampImages:
+    Camp_0_Union: {fileID: 21300000, guid: 1e9d978d073edb64eae5b3ed7234cac3, type: 3}
+    Camp_1_Demic: {fileID: 21300000, guid: f633be9f1e61c474d9b5d87a1387163d, type: 3}
+    Camp_2_Axis: {fileID: 21300000, guid: 8df3bab3fabc4894a88a487ad12eb3c0, type: 3}

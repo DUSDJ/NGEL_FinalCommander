@@ -180,6 +180,36 @@ namespace FC
 
         #endregion
 
+
+
+        #region Volume Control
+
+        public void SetEFXVolume(float value)
+        {
+            audioSource.volume = Mathf.Clamp01(value);
+
+            PlayerPrefs.SetFloat("EfxVolume", value);
+        }
+
+        public float GetEFXVolume()
+        {
+            return audioSource.volume;
+        }
+
+        public void SetBGMVolume(float value)
+        {
+            audioSourceBGM.volume = Mathf.Clamp01(value);
+
+            PlayerPrefs.SetFloat("BgmVolume", value);
+        }
+
+        public float GetBGMVolume()
+        {
+            return audioSourceBGM.volume;
+        }
+
+        #endregion
+
     }
 
 
