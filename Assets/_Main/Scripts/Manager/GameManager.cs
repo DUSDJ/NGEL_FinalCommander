@@ -43,11 +43,14 @@ namespace FC
         public string BGMKey;
 
         private IEnumerator mainRoutine;
+        private IEnumerator locationRoutine;
 
         private bool isInit = false;
 
 
-
+        [Header("적 증가할때까지의 시간(초)")]
+        public float MonsterAddTime = 3.0f;
+       
         [Header("골드")]
         public long gold = 10000;
         public long Gold
@@ -69,6 +72,7 @@ namespace FC
         }
 
         [Header("초당 획득 골드")]
+        public float IncomeAddTime = 1.0f;
         public long Income = 30;        
 
 
@@ -115,35 +119,56 @@ namespace FC
 
 
 
-
             // 글로벌 즉시 암전 해제
             UIManager.Instance.InstantFade(true);
 
 
 
-            // Field 
+            // InCome
             mainRoutine = MainRoutine();
             StartCoroutine(mainRoutine);
+
+            // Location
+            locationRoutine = LocationRoutine();
+            StartCoroutine(locationRoutine);
 
             Debug.Log("Init End!");
 
             yield return null;
         }
 
+
+
+
         private IEnumerator MainRoutine()
         {
-            var wait = new WaitForSeconds(1.0f);
+            var wait = new WaitForSeconds(IncomeAddTime);
+            
 
             while (true)
             {
-                Debug.Log(DateTime.Now.ToString("HH:mm:ss"));
-
                 Gold += Income;
                 yield return wait;
             }
 
         }
-        
+
+
+
+        private IEnumerator LocationRoutine()
+        {
+            var wait = new WaitForSeconds(MonsterAddTime);
+
+
+            while (true)
+            {
+                UIManager.Instance.WorldMapUI.UpdateLocation();
+                yield return wait;
+            }
+
+        }
+
+
         #endregion
 
 

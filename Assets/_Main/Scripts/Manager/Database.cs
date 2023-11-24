@@ -136,6 +136,36 @@ namespace FC
 
 
 
+        [Serializable]
+        public struct StructLocationImage
+        {
+            public Sprite Default;
+            public Sprite Factory;
+            public Sprite Storage;
+            public Sprite Boss;
+        }
+        public StructLocationImage LocationImages;
+
+
+        public Sprite GetLocationImage(EnumLocationType type)
+        {
+            switch (type)
+            {
+                case EnumLocationType.Default:
+                    return LocationImages.Default;                    
+                case EnumLocationType.Factory:
+                    return LocationImages.Factory;
+                case EnumLocationType.Storage:
+                    return LocationImages.Storage;
+                case EnumLocationType.Boss:
+                    return LocationImages.Boss;
+            }
+
+            return LocationImages.Default;
+        }
+
+
+
         public Dictionary<string, Hero> HeroPrefabDic;
 
 

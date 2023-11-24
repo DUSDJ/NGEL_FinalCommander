@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace FC
 {
@@ -12,6 +14,20 @@ namespace FC
 
 
         private List<ElementInventoryHero> selectedElements = new List<ElementInventoryHero>();
+
+
+
+
+
+        [Header("로케이션 데이터")]        
+        public ElementLocation SelectedLocation;
+
+        [Header("UI")]
+        public TextMeshProUGUI NumOfMonsterText;
+
+        public TextMeshProUGUI LocationNameText;
+        public Image LocationTypeIcon;
+        public Image LocationElementalIcon;
 
 
 
@@ -39,6 +55,8 @@ namespace FC
             {
                 CleanElements();
 
+                UpdateElements();
+
                 gameObject.SetActive(true);
             }
             else
@@ -48,6 +66,37 @@ namespace FC
                 gameObject.SetActive(false);
             }
         }
+
+
+
+
+        public void UpdateLocationIfSelected(ElementLocation e)
+        {
+            if(SelectedLocation != null
+                && SelectedLocation == e)
+            {
+                UpdateElements();
+            }
+        }
+
+
+        private void UpdateElements()
+        {
+            if(SelectedLocation == null)
+            {
+                return;
+            }
+
+
+            NumOfMonsterText.text = string.Format("{0}", SelectedLocation.NowMonsterCount);
+            LocationNameText.text = SelectedLocation.LocationName;
+            LocationTypeIcon.sprite = Database.Instance.GetLocationImage(SelectedLocation.LocationType);
+            LocationElementalIcon.sprite = Database.Instance.GetElementalImage((int)SelectedLocation.Elemental);
+    }
+
+
+
+
 
 
         public ElementBattleGroundHero GetEmptyElement()
