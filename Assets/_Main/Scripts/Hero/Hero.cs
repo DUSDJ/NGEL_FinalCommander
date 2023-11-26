@@ -228,9 +228,11 @@ namespace FC
 
         private void CheckLookTarget(Vector2 pos)
         {
-            Vector3 direction = (Vector3)pos - RotationTransform.position;
+            /*
+            Vector2 direction = (Vector3)pos - RotationTransform.position;
+            
             Quaternion targetRotation = Quaternion.LookRotation(direction);
-            targetRotation *= Quaternion.Euler(new Vector3(30, 0, 0));
+            //targetRotation *= Quaternion.Euler(new Vector3(30, 0, 0));
             if (RotationTransform.position.x > pos.x)
             {
                 // targetRotation *= Quaternion.Euler(new Vector3(0, 0, 90));
@@ -239,8 +241,17 @@ namespace FC
             {
                 // targetRotation *= Quaternion.Euler(new Vector3(0, 0, -90));
             }
+            Debug.Log(targetRotation.eulerAngles);
+            // RotationTransform.rotation = Quaternion.Euler(new Vector3(0,360,0));
+            RotationTransform.rotation = Quaternion.FromToRotation(Vector3.up, direction);
+            */
 
-            RotationTransform.rotation = targetRotation;
+
+            Vector3 ShootPoint = pos;
+
+            float AngleRad = Mathf.Atan2(ShootPoint.y - RotationTransform.position.y, ShootPoint.x - RotationTransform.position.x);
+            float AngleDeg = (180 / Mathf.PI) * AngleRad;
+            RotationTransform.rotation = Quaternion.Euler(0, AngleDeg, 0);
         }
 
 
