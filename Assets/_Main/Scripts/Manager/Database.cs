@@ -167,6 +167,7 @@ namespace FC
 
 
         public Dictionary<string, Hero> HeroPrefabDic;
+        public Dictionary<string, Monster> MonsterPrefabDic;
 
 
 
@@ -192,6 +193,7 @@ namespace FC
         public IEnumerator InitRoutine()
         {
             yield return SetHeroPrefabDic();
+            yield return SetMonsterPrefabDic();
 
 
             yield return null;
@@ -230,6 +232,32 @@ namespace FC
                         HeroPrefabDic.Add(name, e);
 
                         Debug.Log("HeroPrefabDic Add : " + name);
+                    }
+
+                }
+            }
+
+            yield return null;
+        }
+
+        
+        private IEnumerator SetMonsterPrefabDic()
+        {
+            if (MonsterPrefabDic == null)
+            {
+                Debug.Log("SetMonsterPrefabDic");
+                MonsterPrefabDic = new Dictionary<string, Monster>();
+
+                var prefabs = Resources.LoadAll<Monster>("MonsterPrefab");
+                for (int i = 0; i < prefabs.Length; i++)
+                {
+                    var e = prefabs[i];
+                    if (!MonsterPrefabDic.ContainsKey(e.name))
+                    {
+                        //var name = e.name.Split('_')[1];
+                        MonsterPrefabDic.Add(e.name, e);
+
+                        Debug.Log("MonsterPrefabDic Add : " + name);
                     }
 
                 }

@@ -248,7 +248,7 @@ namespace FC
         /// </summary>
         public void OnClickBGEngageButton()
         {
-            UIManager.Instance.BattleGroundUI.Engage();
+            GameManager.Instance.Engage();            
         }
 
         #endregion

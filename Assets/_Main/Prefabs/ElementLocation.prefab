@@ -190,9 +190,9 @@ MonoBehaviour:
   LocationName: "\uC9C0\uC5ED\uC774\uB984"
   LocationType: 0
   BaseMonsterCount: 20
-  MonsterAddTime: 3
   MonsterAddValue: 1
-  MonsterPrefabs: []
+  MonsterPrefabs:
+  - {fileID: 8593250951272464680, guid: 9013e6815ebe7e14e8b07a9740d2de9a, type: 3}
   Elemental: 0
   BaseOwner: 0
   RewardGold: 0
@@ -200,6 +200,8 @@ MonoBehaviour:
   LocationIcon: {fileID: 2397321500052171380}
   ElementalIcon: {fileID: 2397321500052171383}
   NumOfMonsterText: {fileID: 2397321500052171382}
+  NowMonsterCount: 0
+  NowOwner: 0
 --- !u!1 &4092228087555588449
 GameObject:
   m_ObjectHideFlags: 0

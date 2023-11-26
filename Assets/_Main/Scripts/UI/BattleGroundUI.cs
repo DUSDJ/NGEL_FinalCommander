@@ -13,10 +13,19 @@ namespace FC
         public List<ElementBattleGroundPosition> PositionList = new List<ElementBattleGroundPosition>();
 
 
+        public List<Transform> SpawnPositionList = new List<Transform>();
+
+
         private List<ElementInventoryHero> selectedElements = new List<ElementInventoryHero>();
 
 
 
+
+        [Header("Monster Parent")]
+        public Transform MonsterParent;
+
+        [Header("Monster Spawn Point")]
+        public List<Transform> SpawnPoint;
 
 
         [Header("로케이션 데이터")]        
@@ -201,16 +210,19 @@ namespace FC
         /// <summary>
         /// 출격하기
         /// </summary>
-        public void Engage()
+        public List<Hero> EngageHeroList()
         {
+            List<Hero> heroes = new List<Hero>();
+
             // 하단 인벤토리에서 영웅 제거됨 (이펙트)
             for (int i = 0; i < selectedElements.Count; i++)
             {
                 // 상단 배치에 프리팹 생성됨
                 var pos = GetEmptyPosition();
                 if (pos != null)
-                {
-                    pos.SetElement(selectedElements[i].Data);
+                {                    
+                    var hero = pos.SetElement(selectedElements[i].Data);
+                    heroes.Add(hero);
 
                     // Effect
                     EffectManager.Instance.SetEffect("Effect_Teleport", pos.transform.position);
@@ -218,7 +230,10 @@ namespace FC
 
                 selectedElements[i].Clean();
             }
-            selectedElements.Clear();            
+            selectedElements.Clear();
+
+
+            return heroes;
         }
 
 

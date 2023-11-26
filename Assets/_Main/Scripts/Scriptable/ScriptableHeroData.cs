@@ -23,6 +23,31 @@ namespace FC
 
 
 
+        [Header("1레벨 기본 능력치")]
+        public int BaseHP = 10;
+        public int BaseAtk = 10;
+        public float BaseAtkSpeed = 1;
+
+        public float SearchRange;
+
+        [Header("레벨당 추가 능력치")]
+        public int LevelUpAddHP = 1;
+        public int LevelUpAddAtk = 1;
+
+
+        public int GetHP(int Level)
+        {
+            return BaseHP + (LevelUpAddHP * Level);
+        }
+
+        public int GetAtk(int Level)
+        {
+            return BaseAtk + (LevelUpAddAtk * Level);
+        }
+
+
+
+
         public ScriptableHeroData()
         {
 

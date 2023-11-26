@@ -13,13 +13,17 @@ namespace FC
         private Hero heroPrefab;
 
 
-        public void SetElement(ScriptableHeroData data)
+        public Hero SetElement(ScriptableHeroData data)
         {
             Data = data;
 
             var prefab = Database.Instance.HeroPrefabDic[data.Key];
             heroPrefab = Instantiate(prefab, HeroPrefabPos, false);
             heroPrefab.gameObject.SetActive(true);
+            heroPrefab.Data = data;
+            heroPrefab.SetHero();
+
+            return heroPrefab;
         }
 
 

@@ -51,6 +51,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77eaa021869fe7a408d321279dd5ea66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Data: {fileID: 0}
+  MaxHP: 100
+  Atk: 1
+  AtkSpeed: 1
+  SearchRange: 5
+  IsAlive: 0
 --- !u!95 &972267024996804068
 Animator:
   serializedVersion: 5

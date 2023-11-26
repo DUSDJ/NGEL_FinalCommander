@@ -1,4 +1,4 @@
-ï»¿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -7,10 +7,8 @@ using UnityEngine.UI;
 
 namespace FC
 {
-    public class Hero : MonoBehaviour
+    public class Monster : MonoBehaviour
     {
-        [HideInInspector] public ScriptableHeroData Data = null;
-
 
         public int MaxHP;
 
@@ -26,7 +24,7 @@ namespace FC
                 value = Mathf.Clamp(value, 0, MaxHP);
                 nowHP = value;
 
-                if(nowHP <= 0)
+                if (nowHP <= 0)
                 {
                     Dead();
                 }
@@ -36,12 +34,62 @@ namespace FC
         public int Atk;
         public float AtkSpeed;
 
+        public float MoveSpeed;
 
         public float SearchRange = 1.0f;
 
+        
         public bool IsAlive = false;
 
+
         private IEnumerator routine;
+
+
+
+        #region Collider
+
+        [Header("Collider")]
+        public Collider2D HitBox;
+
+        /// <summary>
+        /// from°ú ¸ó½ºÅÍ È÷Æ®¹Ú½º¿ÍÀÇ °Å¸® (´«¿¡ º¸ÀÌ´Â ½ÇÁ¦ °Å¸®)
+        /// °¡Àå °¡±î¿î ¹Ú½º Æ÷ÀÎÆ® ±âÁØ
+        /// </summary>
+        /// <param name="from"></param>
+        /// <returns></returns>
+        public float DistanceOfHitBox(Vector2 from)
+        {
+            return Vector2.Distance(HitBox.ClosestPoint(from), from);
+        }
+
+        /// <summary>
+        /// Æ¯Á¤ Á¡ÀÌ È÷Æ®¹Ú½º ¾È¿¡ ÀÖ´ÂÁö
+        /// </summary>
+        /// <param name="point"></param>
+        /// <returns></returns>
+        public bool IsPointInHitBox(Vector3 point)
+        {
+            return HitBox.OverlapPoint(point);
+        }
+
+
+        /// <summary>
+        /// È÷Æ®¹Ú½º°¡ ´Ù¸¥ ¹Ú½º¶û °ãÄ¡´ÂÁö
+        /// </summary>
+        /// <param name="Box"></param>
+        /// <returns></returns>
+        public bool IsHitBoxIntersectBox(Vector2 pos, Vector2 size)
+        {
+
+            Bounds b = HitBox.bounds;
+            Bounds b2 = new Bounds(pos, size);
+
+            return b.Intersects(b2);
+        }
+
+
+        #endregion
+
 
 
 
@@ -58,40 +106,40 @@ namespace FC
 
         }
 
+
         #endregion
 
 
 
 
 
-        public void SetHeroData()
+        public void SetMonster(Vector3 pos)
         {
-            MaxHP = Data.GetHP(Data.Level);
-            Atk = Data.GetAtk(Data.Level);
-            AtkSpeed = Data.BaseAtkSpeed;
-        }
-
-        public void SetHero()
-        {
-            SetHeroData();
+            gameObject.SetActive(true);
 
             NowHP = MaxHP;
+            transform.position = pos;
             IsAlive = true;
-            
-            if(routine != null)
+
+            if (routine != null)
             {
                 StopCoroutine(routine);
-            }            
+            }
             routine = BattleRoutine();
             StartCoroutine(routine);
         }
 
 
+
+
+
+
+
         public void Clean()
         {
-            MaxHP = 0;
-            NowHP = 0;
-            SearchRange = 0;
+            // MaxHP = 0;
+            nowHP = 0;
+            // SearchRange = 0;
             IsAlive = false;
 
             // anim.enabled = false;
@@ -105,36 +153,35 @@ namespace FC
 
 
 
-
         #region Battle
 
-        private Monster target;   // ëŒ€ìƒ ì 
+        private Hero target;   // ´ë»ó Àû
 
         private float attackDelay = 0f;
 
 
 
         /// <summary>
-        /// ê³µê²© ì‹œì‘ ë²”ìœ„ì— ì ì´ ìˆëŠ”ê°€ (ê³µê²©ì˜ ì‹œì‘ì—¬ë¶€ í™•ì¸)
+        /// °ø°İ ½ÃÀÛ ¹üÀ§¿¡ ÀûÀÌ ÀÖ´Â°¡ (°ø°İÀÇ ½ÃÀÛ¿©ºÎ È®ÀÎ)
         /// </summary>
         /// <param name="e"></param>
         /// <returns></returns>
-        private bool CheckAttackStartRange(Monster e, Vector3 playerPos)
-        {            
-            float dis = e.DistanceOfHitBox(playerPos);
+        private bool CheckAttackStartRange(Hero e, Vector2 myPos)
+        {
+            float dis = Vector2.Distance(myPos, e.transform.position);
+            //float dis = e.DistanceOfHitBox(playerPos);
             return dis <= SearchRange;
         }
 
         /// <summary>
-        /// ê³µê²© ë²”ìœ„ ë‚´ì— ì ì´ ìˆëŠ”ê°€ (í”¼ê²©í™•ì¸)
+        /// °ø°İ ¹üÀ§ ³»¿¡ ÀûÀÌ ÀÖ´Â°¡ (ÇÇ°İÈ®ÀÎ)
         /// </summary>
         /// <param name="e"></param>
         /// <returns></returns>
-        private bool CheckAttackRange(Monster e, Vector3 playerPos)
+        private bool CheckAttackRange(Hero e, Vector2 myPos)
         {
-            
-            float dis = e.DistanceOfHitBox(playerPos);
-            
+            float dis = Vector2.Distance(myPos, e.transform.position);
+            //float dis = e.DistanceOfHitBox(playerPos);
             return dis <= SearchRange;
         }
 
@@ -143,17 +190,15 @@ namespace FC
 
         private void MoveTo(Vector2 pos)
         {
-            // ì• ë‹ˆë©”ì´ì…˜ ì—°ì¶œë¶€      
+            // ¾Ö´Ï¸ŞÀÌ¼Ç ¿¬ÃâºÎ      
             // SetAnimationBool("Move", true);
 
             CheckLookTarget(pos);
 
-            /*
             transform.position =
                 Vector2.MoveTowards(transform.position,
                     pos,
-                    moveSpeed * Time.deltaTime);
-            */
+                    MoveSpeed * Time.deltaTime);
         }
 
         private void CheckLookTarget(Vector2 pos)
@@ -172,20 +217,18 @@ namespace FC
 
 
 
-
         private IEnumerator BattleRoutine()
         {
             attackDelay = 1 / AtkSpeed;
 
-            var mm = MonsterManager.Instance;
-            
+            var gm = GameManager.Instance;
+
             while (true)
             {
-                Vector3 heroPos = transform.position;
+                Vector3 myPos = transform.position;
 
-                var enemies = mm.GetActiveMonster();
-
-                if(enemies.Count <= 0)
+                var heroes = gm.GetActiveHeroes();
+                if (heroes.Count <= 0)
                 {
                     target = null;
                     yield return null;
@@ -193,9 +236,10 @@ namespace FC
                 }
 
 
-                // ê°€ê¹Œìš´ ìˆœìœ¼ë¡œ ì •ë ¬
-                var list = enemies.OrderBy(x => x.DistanceOfHitBox(heroPos)).ToList();
-                
+
+                // °¡±î¿î ¼øÀ¸·Î Á¤·Ä
+                var list = heroes.OrderBy(x => Vector3.Distance(x.transform.position, transform.position)).ToList();
+
                 if (list.Count > 0)
                 {
                     target = list[0];
@@ -206,45 +250,34 @@ namespace FC
                 }
 
 
-
-                // 1. ì  íƒìƒ‰ : ëŒ€ìƒì´ ì—†ëŠ”ê°€?
+                // 1. Àû Å½»ö : ´ë»óÀÌ ¾ø´Â°¡?
                 if (target == null)
                 {
-                    Debug.LogError("target Null");
                     yield return null;
                     continue;
                 }
                 else
                 {
-                    // 2. ì  ì¶”ì  : ê³µê²©ì‹œì‘ ì‚¬ê±°ë¦¬ ë°–ì¸ê°€?
-                    bool inAttackRange = CheckAttackStartRange(target, heroPos);
+                    // 2. Àû ÃßÀû : °ø°İ½ÃÀÛ »ç°Å¸® ¹ÛÀÎ°¡?
+                    bool inAttackRange = CheckAttackStartRange(target, myPos);
                     if (inAttackRange == false)
                     {
-                        // ì˜ì›…ì€ íƒ€ì›Œë¼ì„œ ì¶”ì í•˜ì§€ ì•ŠìŒ
-                        // MoveTo(target.transform.position);
+                        MoveTo(target.transform.position);
+                        Debug.DrawLine(transform.position, target.transform.position, Color.blue, 0.05f);
                     }
                     else
                     {
-                        // 3. ì ì„ ê³µê²©
+                        // 3. ÀûÀ» °ø°İ
                         CheckLookTarget(target.transform.position);
 
-                        // í›„ë”œì´ ìˆë‹¤ë©´ ë¬´í•œëŒ€ê¸°
+                        // ÈÄµôÀÌ ÀÖ´Ù¸é ¹«ÇÑ´ë±â
                         if (attackDelay > 0)
-                        {                            
+                        {
                             yield return null;
                             continue;
                         }
 
-                        Debug.DrawLine(transform.position, target.transform.position, Color.red, 0.05f);
-
-                        // Target ë°ë¯¸ì§€ ì²˜ë¦¬
-                        if (target.IsAlive)
-                        {
-                            target.Damaged(Atk);
-                        }
-
-                        /*
-                        // ì¦‰ì‹œ ê³µê²©ë²”ìœ„ ë‚´ì˜ ì  ëª¨ë‘ ë°ë¯¸ì§€ ì²˜ë¦¬
+                        // Áï½Ã °ø°İ¹üÀ§ ³»ÀÇ Àû ¸ğµÎ µ¥¹ÌÁö Ã³¸®
                         for (int i = 0; i < list.Count; i++)
                         {
                             if (!list[i].IsAlive)
@@ -252,17 +285,15 @@ namespace FC
                                 continue;
                             }
 
-                            if (CheckAttackRange(list[i], heroPos))
+                            if (CheckAttackRange(list[i], myPos))
                             {
                                 list[i].Damaged(Atk);
                             }
                         }
-                        */
 
-
-                        // ì‚¬ìš´ë“œ
+                        // »ç¿îµå
                         // AudioManager.Instance.PlayOneShot();
-                        // ì´í™íŠ¸
+                        // ÀÌÆåÆ®
                         /*
                         if (PlayerCharacter.NowLookSide == EnumCharacterSide.Left)
                         {
@@ -274,21 +305,21 @@ namespace FC
                         }
                         */
 
-                        // 3-1. ê³µê²© í›„ë”œ ëŒ€ì…
-                        // í›„ë”œ ì²˜ë¦¬ëŠ” ê³µê²© ì‹œì‘ë‹¨ê³„ì—ì„œ í•œë‹¤.
+                        // 3-1. °ø°İ ÈÄµô ´ëÀÔ
+                        // ÈÄµô Ã³¸®´Â °ø°İ ½ÃÀÛ´Ü°è¿¡¼­ ÇÑ´Ù.
                         attackDelay = 1 / AtkSpeed;
                         // yield return new WaitForSeconds(PlayerDataManager.Instance.StatusMachine.GetResultAttackDelayTime());
 
 
-                        // 3-2. ê³µê²© ì• ë‹ˆë©”ì´ì…˜ ì‹œì‘ (3-1ì˜ í›„ë”œ ë°˜ì˜)
-                        /* ê³µê²© ì• ë‹ˆë©”ì´ì…˜ ì¬ìƒì‹œê°„ ì„¤ì • 
-                           ì• ë‹ˆë©”ì´ì…˜ ê³µì†ê¹Œì§€ëŠ” ê·¸ëŒ€ë¡œ ê³µê²©ëª¨ì…˜ ì‚¬ìš©
-                           AttackDelayë³´ë‹¤ í°ê°€ ì‘ì€ê°€ ê³„ì‚°í•´ì„œ, ëª¨ì…˜ì‹œê°„ì„ ì¤„ì´ê¸°ë§Œ í•œë‹¤.
-                           ê·¸ë˜ë„ ëª¨ì…˜ ì¤‘ ëª¨ì…˜ ì´ˆê¸°í™”í•  ìˆ˜ ìˆë‹¤ (ì• ë‹ˆë©”ì´ì…˜ EndAction ì´ë²¤íŠ¸ ì—†ìŒ)
+                        // 3-2. °ø°İ ¾Ö´Ï¸ŞÀÌ¼Ç ½ÃÀÛ (3-1ÀÇ ÈÄµô ¹İ¿µ)
+                        /* °ø°İ ¾Ö´Ï¸ŞÀÌ¼Ç Àç»ı½Ã°£ ¼³Á¤ 
+                           ¾Ö´Ï¸ŞÀÌ¼Ç °ø¼Ó±îÁö´Â ±×´ë·Î °ø°İ¸ğ¼Ç »ç¿ë
+                           AttackDelayº¸´Ù Å«°¡ ÀÛÀº°¡ °è»êÇØ¼­, ¸ğ¼Ç½Ã°£À» ÁÙÀÌ±â¸¸ ÇÑ´Ù.
+                           ±×·¡µµ ¸ğ¼Ç Áß ¸ğ¼Ç ÃÊ±âÈ­ÇÒ ¼ö ÀÖ´Ù (¾Ö´Ï¸ŞÀÌ¼Ç EndAction ÀÌº¥Æ® ¾øÀ½)
                          */
 
                         // float originAttackAnimTime = PlayerCharacter.GetAnimationTime(EnumCharacterAnimation.Attack);
-                        float originAttackAnimTime = 0.5f; // ëª¨ë“  ê³µê²© ëª¨ì…˜ì´ 0.5ì´ˆë¡œ ê³ ì •ë˜ì–´ìˆë‹¤
+                        float originAttackAnimTime = 0.5f; // ¸ğµç °ø°İ ¸ğ¼ÇÀÌ 0.5ÃÊ·Î °íÁ¤µÇ¾îÀÖ´Ù
                         if (originAttackAnimTime < attackDelay)
                         {
                             float animSpeed = attackDelay / originAttackAnimTime;
@@ -307,13 +338,13 @@ namespace FC
 
 
 
+
                 yield return null;
             }
         }
 
-
-
         #endregion
+
 
 
 
@@ -329,26 +360,12 @@ namespace FC
         {
             IsAlive = false;
             gameObject.SetActive(false);
+
+            Clean();
         }
 
 
         #endregion
-
-
-
-
-
-
-        /// <summary>
-        /// SearchRange ì‚¬ê±°ë¦¬ í‘œì‹œ
-        /// </summary>
-        private void OnDrawGizmos()
-        {
-            Gizmos.color = Color.green;
-            Vector3 LineEnd = transform.position;
-            LineEnd.x -= SearchRange;
-            Gizmos.DrawLine(transform.position, LineEnd);
-        }
 
     }
 }

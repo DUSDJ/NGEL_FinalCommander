@@ -6,11 +6,7 @@ using UnityEngine.UI;
 
 namespace FC
 {
-    public enum EnumLocationOwner
-    {
-        Enemy = 0,
-        Player = 1,
-    }
+    
 
     public class ElementLocation : MonoBehaviour
     {
@@ -23,9 +19,8 @@ namespace FC
         public int BaseMonsterCount = 20;
 
         [Header("적 생성 규칙")]        
-        public float MonsterAddTime = 3.0f;
         public int MonsterAddValue = 1;
-        public List<GameObject> MonsterPrefabs;
+        public List<Monster> MonsterPrefabs;
 
         public EnumElemental Elemental = EnumElemental.Fire;
 
@@ -96,6 +91,19 @@ namespace FC
             UIManager.Instance.BattleGroundUI.UpdateLocationIfSelected(this);
         }
 
+
+
+        public void DecreaseMonster(int value)
+        {
+            NowMonsterCount -= value;
+            if (NowMonsterCount < 0)
+            {
+                NowMonsterCount = 0;
+            }
+
+            UpdateElement();
+            UIManager.Instance.BattleGroundUI.UpdateLocationIfSelected(this);
+        }
 
 
         public void OnClickLocation()
