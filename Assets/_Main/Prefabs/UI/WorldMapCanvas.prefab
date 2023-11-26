@@ -469,7 +469,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &6070516377191854263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -664,6 +664,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6070516377191854260}
     m_Modifications:
+    - target: {fileID: 185441570888662738, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 185441570888662740, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3694193661674707141, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3694396769922514403, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4595874878356138825, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -748,9 +764,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6483080427104303293, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7615773222877004055, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8096608507627126374, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8819825623708303401, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
+      propertyPath: MonsterAddValue
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8819825623708303401, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
+      propertyPath: BaseMonsterCount
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8819825623708303406, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
       propertyPath: m_Name
@@ -781,6 +813,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6070516377191854260}
     m_Modifications:
+    - target: {fileID: 185441570888662738, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 185441570888662740, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3694193661674707141, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3694396769922514403, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4595874878356138825, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -877,9 +925,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6483080427104303293, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7615773222877004055, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8096608507627126374, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8819825623708303401, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
       propertyPath: Elemental
@@ -899,11 +955,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8819825623708303401, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
       propertyPath: MonsterAddValue
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8819825623708303401, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
       propertyPath: BaseMonsterCount
-      value: 10
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8819825623708303401, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
       propertyPath: UnlockLocation.Array.size
@@ -942,6 +998,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6070516377191854260}
     m_Modifications:
+    - target: {fileID: 185441570888662738, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 185441570888662740, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3203572782681152018, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3694193661674707141, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3694396769922514403, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4595874878356138825, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -977,18 +1053,6 @@ PrefabInstance:
     - target: {fileID: 4595874878356138825, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
       propertyPath: m_SizeDelta.y
       value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 4595874878356138825, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4595874878356138825, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4595874878356138825, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4595874878356138825, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1038,37 +1102,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7615773222877004055, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
+    - target: {fileID: 6483080427104303293, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 8819825623708303401, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
-      propertyPath: Elemental
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8819825623708303401, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
-      propertyPath: NumOfSlots
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8819825623708303401, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
-      propertyPath: RewardGold
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 8819825623708303401, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
-      propertyPath: LocationType
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8819825623708303401, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
-      propertyPath: MonsterAddValue
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8819825623708303401, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
-      propertyPath: BaseMonsterCount
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8819825623708303401, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
-      propertyPath: UnlockLocation.Array.size
-      value: 1
+    - target: {fileID: 8096608507627126374, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8819825623708303401, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
       propertyPath: UnlockLocation.Array.data[0]
@@ -1092,6 +1132,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6070516377191854260}
     m_Modifications:
+    - target: {fileID: 185441570888662738, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 185441570888662740, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3694193661674707141, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3694396769922514403, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4595874878356138825, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1188,9 +1244,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6483080427104303293, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7615773222877004055, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8096608507627126374, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8819825623708303401, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
       propertyPath: Elemental
@@ -1210,11 +1274,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8819825623708303401, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
       propertyPath: MonsterAddValue
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8819825623708303401, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
       propertyPath: BaseMonsterCount
-      value: 10
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8819825623708303401, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
       propertyPath: UnlockLocation.Array.size

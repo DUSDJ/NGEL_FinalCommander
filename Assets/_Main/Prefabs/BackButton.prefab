@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5681440400703842059}
   - component: {fileID: 5681440400703842053}
   - component: {fileID: 5681440400703842052}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5681440401077973034}
   - component: {fileID: 5681440401077973035}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: BackButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 5915566657871044993}
   - component: {fileID: 2421514098067798832}
   - component: {fileID: 135940960776752193}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Image (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.07438062, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

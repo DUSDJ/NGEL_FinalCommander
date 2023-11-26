@@ -44,6 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83028ec6c00da5345a381d736d7919b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NowGameState: 0
   BGMKey: 
-  gold: 7500
+  MonsterAddTime: 2
+  MonsterSpawnTime: 0.2
+  NumOfMonsterSpawn: 3
+  gold: 50000
+  IncomeAddTime: 1
   Income: 30
+  BattleLocation: {fileID: 0}
+  MainCamera: {fileID: 0}

@@ -549,9 +549,9 @@ MonoBehaviour:
     ContentBlue: {r: 0.39607844, g: 0.43529412, b: 0.8117647, a: 1}
     GemPink: {r: 0.92156863, g: 0.4117647, b: 0.60784316, a: 1}
     AlertRed: {r: 1, g: 0, b: 0, a: 1}
-  ScailingInTime: 0.3
-  ScailingOutTime: 0.3
-  WaitTime: 1
+  ScailingInTime: 0.2
+  ScailingOutTime: 0.2
+  WaitTime: 3
 --- !u!1 &2676871891509241853
 GameObject:
   m_ObjectHideFlags: 0
