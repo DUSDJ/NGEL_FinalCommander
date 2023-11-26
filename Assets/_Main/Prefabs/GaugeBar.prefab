@@ -169,6 +169,7 @@ GameObject:
   - component: {fileID: 1130927136144068613}
   - component: {fileID: 5321571349658390464}
   - component: {fileID: 8255788529276727247}
+  - component: {fileID: 5804319898290111123}
   m_Layer: 3
   m_Name: GaugeBar
   m_TagString: Untagged
@@ -272,6 +273,17 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!210 &5804319898290111123
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925337263722864309}
+  m_Enabled: 1
+  m_SortingLayerID: -48792547
+  m_SortingLayer: 4
+  m_SortingOrder: 0
 --- !u!1 &3291609222148038971
 GameObject:
   m_ObjectHideFlags: 0
