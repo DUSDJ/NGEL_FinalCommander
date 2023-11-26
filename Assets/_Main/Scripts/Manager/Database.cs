@@ -211,6 +211,7 @@ namespace FC
             copy.Copy(find[rand]);
             copy.Level = level;
             copy.Elemental = elemental;
+
             return copy;
         }
 
