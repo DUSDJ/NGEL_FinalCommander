@@ -997,7 +997,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 235a91af0147d0141b482c86781d6fc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GoldEffectPos: {fileID: 0}
   GoldEffect: {fileID: 1529042367}
   GoldText: {fileID: 8508182268890588020}
   CreationButton: {fileID: 8508182268060135873}
@@ -2829,6 +2828,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4860700803879937736, guid: e8d9d23ab99a02b4dad802f23705378a, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4860700804575283976, guid: e8d9d23ab99a02b4dad802f23705378a, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -2846,8 +2849,12 @@ PrefabInstance:
       value: +30
       objectReference: {fileID: 0}
     - target: {fileID: 4860700804575283982, guid: e8d9d23ab99a02b4dad802f23705378a, type: 3}
+      propertyPath: m_fontColor.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4860700804575283982, guid: e8d9d23ab99a02b4dad802f23705378a, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4278247679
+      value: 57599
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8d9d23ab99a02b4dad802f23705378a, type: 3}
