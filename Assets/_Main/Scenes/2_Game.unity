@@ -2698,6 +2698,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8702810204680061382, guid: a68f07932423694469226ec685ac03f4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.6900024
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702810205158320296, guid: a68f07932423694469226ec685ac03f4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.6900024
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702810205481876475, guid: a68f07932423694469226ec685ac03f4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.6900024
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702810205778069251, guid: a68f07932423694469226ec685ac03f4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.6900024
+      objectReference: {fileID: 0}
+    - target: {fileID: 8702810206157018084, guid: a68f07932423694469226ec685ac03f4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.6900024
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a68f07932423694469226ec685ac03f4, type: 3}
 --- !u!1001 &1941603474402673249
@@ -3063,6 +3083,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WorldMapCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6070516377191854262, guid: ef4752679e2986d40aac76fee49394e2, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef4752679e2986d40aac76fee49394e2, type: 3}
 --- !u!1001 &6411866029941204292
@@ -3078,7 +3102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6411866030269760052, guid: 9e6fbdc69cc88da44b893c2b5516a924, type: 3}
       propertyPath: gold
-      value: 2000
+      value: 50000
       objectReference: {fileID: 0}
     - target: {fileID: 6411866030269760052, guid: 9e6fbdc69cc88da44b893c2b5516a924, type: 3}
       propertyPath: MainCamera

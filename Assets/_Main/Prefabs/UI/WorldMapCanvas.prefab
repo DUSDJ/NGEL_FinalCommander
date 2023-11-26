@@ -469,7 +469,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &6070516377191854263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -748,14 +748,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8819825623708303401, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
-      propertyPath: MonsterAddValue
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8819825623708303401, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
-      propertyPath: BaseMonsterCount
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 8819825623708303406, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
       propertyPath: m_Name
       value: ElementLocation 1
@@ -877,6 +869,10 @@ PrefabInstance:
     - target: {fileID: 8819825623708303401, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
       propertyPath: NumOfSlots
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8819825623708303401, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
+      propertyPath: RewardGold
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 8819825623708303401, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
       propertyPath: LocationType
@@ -1013,6 +1009,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8819825623708303401, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
+      propertyPath: RewardGold
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8819825623708303401, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
       propertyPath: LocationType
       value: 2
       objectReference: {fileID: 0}
@@ -1145,6 +1145,10 @@ PrefabInstance:
     - target: {fileID: 8819825623708303401, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
       propertyPath: NumOfSlots
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8819825623708303401, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
+      propertyPath: RewardGold
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 8819825623708303401, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
       propertyPath: LocationType
