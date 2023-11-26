@@ -342,10 +342,10 @@ namespace FC
                     {
                         var hero = pos.SetElement(ElementList[i].Data);
                         heroes.Add(hero);
-                    }
 
-                    // Effect
-                    EffectManager.Instance.SetEffect("Effect_Teleport", ElementList[i].transform.position);
+                        // Effect
+                        EffectManager.Instance.SetEffect("Effect_Teleport", ElementList[i].transform.position);
+                    }                    
                 }                
             }
 
