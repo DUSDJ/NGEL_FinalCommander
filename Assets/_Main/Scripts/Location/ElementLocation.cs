@@ -43,6 +43,8 @@ namespace FC
         public Image ElementalIcon;
         public TextMeshProUGUI NumOfMonsterText;
 
+        public IncomeEffect IncomeEffect;
+
         
         [HideInInspector] public int NowMonsterCount = 0;
         [HideInInspector] public EnumLocationOwner NowOwner = EnumLocationOwner.Enemy;
@@ -90,6 +92,8 @@ namespace FC
             {
                 NowMonsterCount = 999;
             }
+
+            IncomeEffect.SetEffect(string.Format("+{0}", MonsterAddValue));
 
             UpdateElement();
             UIManager.Instance.BattleGroundUI.UpdateLocationIfSelected(this);

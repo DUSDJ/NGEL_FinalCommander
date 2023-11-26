@@ -187,6 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08c7bf7ce17eed540a0876908ff33f83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HeroList: []
   LocationName: "\uC9C0\uC5ED\uC774\uB984"
   LocationType: 0
   BaseMonsterCount: 20
@@ -200,6 +201,7 @@ MonoBehaviour:
   LocationIcon: {fileID: 2397321500052171380}
   ElementalIcon: {fileID: 2397321500052171383}
   NumOfMonsterText: {fileID: 2397321500052171382}
+  IncomeEffect: {fileID: 4962352966801331726}
   NowMonsterCount: 0
   NowOwner: 0
 --- !u!1 &4092228087555588449
@@ -764,6 +766,7 @@ GameObject:
   - component: {fileID: 3002380877143850453}
   - component: {fileID: 6809958243729861805}
   - component: {fileID: 6474231420994810583}
+  - component: {fileID: 4962352966801331726}
   m_Layer: 5
   m_Name: Text (TMP) (1)
   m_TagString: Untagged
@@ -829,7 +832,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4278190335
-  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
+  m_fontColor: {r: 1, g: 0, b: 0, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -909,3 +912,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4962352966801331726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9032220459206336841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b906d99ef81a68b458f828d3f7578ee5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 6474231420994810583}
+  IncomeText: {fileID: 6809958243729861805}

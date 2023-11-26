@@ -179,6 +179,8 @@ namespace FC
                 }
 
                 Gold += Income;
+                UIManager.Instance.InventoryUI.SetGoldEffect(string.Format("+{0}", Income));
+
                 yield return wait;
             }
 
