@@ -77,6 +77,8 @@ namespace FC
 
         private IEnumerator routine;
 
+        private Vector3 originScale;
+
 
 
         #region Collider
@@ -128,7 +130,13 @@ namespace FC
 
 
 
-        #region Update
+        #region Awake & Update
+
+        private void Awake()
+        {
+            originScale = transform.localScale;
+        }
+
 
         public void Update()
         {
@@ -147,7 +155,9 @@ namespace FC
 
 
         public void SetMonster(Vector3 pos)
-        {
+        {            
+            transform.localScale = originScale;
+
             InitGaugeBarUI();
 
             gameObject.SetActive(true);
@@ -172,6 +182,9 @@ namespace FC
 
         public void Clean()
         {
+            transform.DOKill();
+            transform.localScale = originScale;
+
             // MaxHP = 0;
             nowHP = 0;
             // SearchRange = 0;
@@ -238,14 +251,19 @@ namespace FC
 
         private void CheckLookTarget(Vector2 pos)
         {
+            Vector3 direction = (Vector3)pos - transform.position;
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            
             if (transform.position.x > pos.x)
             {
-                // Flip(EnumCharacterSide.Left);
+                targetRotation *= Quaternion.Euler(new Vector3(0, 0, 90));
             }
             else
             {
-                // Flip(EnumCharacterSide.Right);
+                targetRotation *= Quaternion.Euler(new Vector3(0, 0, -90));
             }
+
+            transform.rotation = targetRotation;
         }
 
 
@@ -398,13 +416,16 @@ namespace FC
         }
 
         public void Dead()
-        {
+        {           
             IsAlive = false;
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
 
-            Clean();
+            transform.DOScale(0f, 1.0f).OnComplete(() => {
+                Clean();
+                GameManager.Instance.MonsterDead(this);
+            });            
 
-            GameManager.Instance.MonsterDead(this);
+            
         }
 
 
