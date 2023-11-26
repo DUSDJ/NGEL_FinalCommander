@@ -393,11 +393,20 @@ namespace FC
             // Monster Clean
             MonsterManager.Instance.Clean();
 
-            // BattleGround Clean?
-            // UIManager.Instance.BattleGroundUI.CleanElements();
+            // BattleGround Hero만 보여줌
+            UIManager.Instance.BattleGroundUI.UpdateHero();
 
+            // Owner
+            BattleLocation.NowOwner = EnumLocationOwner.Player;
+
+            // Reward
+            Income += BattleLocation.RewardGold;
+            
             // Alert
             UIManager.Instance.AlertUI.SetTextMiddleBlue("승리!");
+            
+
+            BattleLocation = null;
         }
 
         private void BattleLost()

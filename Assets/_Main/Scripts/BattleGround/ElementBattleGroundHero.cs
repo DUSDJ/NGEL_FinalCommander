@@ -19,6 +19,18 @@ namespace FC
         [HideInInspector] public ElementInventoryHero MatchedElement = null;
 
 
+        public void SetElement(Hero hero)
+        {
+            MatchedElement = null;
+
+            Data = hero.Data;
+
+            PortraitImage.sprite = Data.PortraitSprite;
+
+            ActivationObject.SetActive(true);
+            gameObject.SetActive(true);
+        }
+
 
         public void SetElement(ElementInventoryHero elem)
         {
@@ -57,7 +69,25 @@ namespace FC
         {
             if(Data != null)
             {
-                UIManager.Instance.BattleGroundUI.SubtractHeroFromElement(this);
+                if(MatchedElement != null)
+                {
+                    UIManager.Instance.BattleGroundUI.SubtractHeroFromElement(this);
+                }
+                else
+                {
+                    // 슬롯 빈 자리 있으면 Add
+                    var e = UIManager.Instance.InventoryUI.GetEmptyElement();
+                    if(e != null)
+                    {
+                        UIManager.Instance.InventoryUI.AddHero(Data);
+                    }
+                    // 없으면 Alert
+                    else
+                    {
+                        UIManager.Instance.AlertUI.SetTextMiddleRed("슬롯에 빈 자리가 없습니다.");
+                    }                    
+                }
+                
             }
         }
 

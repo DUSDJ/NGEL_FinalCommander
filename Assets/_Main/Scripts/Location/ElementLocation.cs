@@ -74,7 +74,6 @@ namespace FC
 
 
 
-
         /// <summary>
         /// 매 턴마다 적용되는 내용
         /// </summary>

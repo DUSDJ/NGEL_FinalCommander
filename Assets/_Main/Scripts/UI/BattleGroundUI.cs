@@ -93,6 +93,8 @@ namespace FC
 
                 UpdateElements();
 
+                UpdateHero();
+
                 gameObject.SetActive(true);
             }
             else
@@ -123,14 +125,46 @@ namespace FC
                 return;
             }
 
-            
             NumOfMonsterText.text = string.Format("{0}", SelectedLocation.NowMonsterCount);
             LocationNameText.text = SelectedLocation.LocationName;
             LocationTypeIcon.sprite = Database.Instance.GetLocationImage(SelectedLocation.LocationType);
             LocationElementalIcon.sprite = Database.Instance.GetElementalImage((int)SelectedLocation.Elemental);
-    }
+        }
 
+        public void UpdateHero()
+        {
+            if(SelectedLocation == null)
+            {
+                return;
+            }
 
+            if(SelectedLocation.NowOwner != EnumLocationOwner.Player)
+            {
+                return;
+            }
+
+            if (SelectedLocation.HeroList != null
+                && SelectedLocation.HeroList.Count > 0)
+            {
+                for (int i = 0; i < SelectedLocation.HeroList.Count; i++)
+                {
+                    if (!SelectedLocation.HeroList[i].IsAlive)
+                    {
+                        continue;
+                    }
+
+                    var bgElem = GetEmptyElement();
+                    if (bgElem == null)
+                    {
+                        // Alert
+                        // UIManager.Instance.AlertUI.SetTextMiddleBlue("½½·ÔÀÌ °¡µæ Ã¡½À´Ï´Ù.");
+                        return;
+                    }
+
+                    bgElem.SetElement(SelectedLocation.HeroList[i]);
+                }
+            }
+        }
 
 
 
