@@ -69,6 +69,8 @@ namespace FC
             MaxHP = Data.GetHP(Data.Level);
             Atk = Data.GetAtk(Data.Level);
             AtkSpeed = Data.BaseAtkSpeed;
+
+            Debug.LogError("Data.BaseAtkSpeed : " + Data.BaseAtkSpeed);
         }
 
         public void SetHero()

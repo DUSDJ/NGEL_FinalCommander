@@ -63,6 +63,14 @@ namespace FC
             Level = 1;
             Elemental = 0;
             Camp = copy.Camp;
+
+            BaseHP = copy.BaseHP;
+            BaseAtk = copy.BaseAtk;
+            BaseAtkSpeed = copy.BaseAtkSpeed;
+
+            SearchRange = copy.SearchRange;
+            LevelUpAddHP = copy.LevelUpAddHP;
+            LevelUpAddAtk = copy.LevelUpAddHP;
         }
 
         public void Copy(ScriptableHeroData copy)
@@ -75,7 +83,16 @@ namespace FC
             Level = 1;
             Elemental = 0;
             Camp = copy.Camp;
-        }
+
+
+            BaseHP = copy.BaseHP;
+            BaseAtk = copy.BaseAtk;
+            BaseAtkSpeed = copy.BaseAtkSpeed;
+
+            SearchRange = copy.SearchRange;
+            LevelUpAddHP = copy.LevelUpAddHP;
+            LevelUpAddAtk = copy.LevelUpAddHP;
+    }
 
     }
 }

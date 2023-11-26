@@ -231,6 +231,13 @@ namespace FC
 
 
                 // N초당 Slot 수만큼 생성
+                // 한 포인트에는 하나만 생성되는 방식 (일주하면 중복 가능)
+                var spawnPointList = new List<Transform>();
+                for (int i = 0; i < UIManager.Instance.BattleGroundUI.SpawnPoint.Count; i++)
+                {
+                    spawnPointList.Add(UIManager.Instance.BattleGroundUI.SpawnPoint[i]);
+                }
+                
                 for (int i = 0; i < slots; i++)
                 {
                     if(now >= count)
@@ -238,12 +245,23 @@ namespace FC
                         yield break;
                     }
 
+                    if(spawnPointList.Count == 0)
+                    {
+                        for (int j = 0; j < UIManager.Instance.BattleGroundUI.SpawnPoint.Count; j++)
+                        {
+                            spawnPointList.Add(UIManager.Instance.BattleGroundUI.SpawnPoint[j]);
+                        }
+                    }
 
                     int rand = UnityEngine.Random.Range(0, monsterPrefabs.Count);
                     var randMonster = monsterPrefabs[rand];
 
-                    int spawnPointRand = UnityEngine.Random.Range(0, UIManager.Instance.BattleGroundUI.SpawnPoint.Count);
-                    var point = UIManager.Instance.BattleGroundUI.SpawnPoint[spawnPointRand];
+                    int spawnPointRand = UnityEngine.Random.Range(0, spawnPointList.Count);
+                    // int spawnPointRand = UnityEngine.Random.Range(0, UIManager.Instance.BattleGroundUI.SpawnPoint.Count);
+
+                    var point = spawnPointList[spawnPointRand];
+                    spawnPointList.RemoveAt(spawnPointRand);
+
                     MonsterManager.Instance.SetMonster(randMonster.name, point.position);
 
                     // 생성+1
