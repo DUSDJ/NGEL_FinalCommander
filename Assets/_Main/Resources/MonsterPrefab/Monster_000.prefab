@@ -1349,6 +1349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cfbead390f01ea49a3a8593fcfa351b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RotationTransform: {fileID: 1921521027242314773}
   GaugeBarCanvasGroup: {fileID: 8883361486998372107}
   GaugeBar: {fileID: 3943053056840824538}
   MaxHP: 200
