@@ -467,6 +467,11 @@ namespace FC
             // Hero Clean
             BattleLocation.HeroList.Clear();
 
+            BattleLocation = null;
+
+            // 모든 ElementLocation UpdateElement
+            UIManager.Instance.WorldMapUI.UpdateElement();
+
             // Monster Clean
             MonsterManager.Instance.Clean();
 
@@ -481,7 +486,22 @@ namespace FC
 
 
 
+        #region Last Game Clear
 
+
+        /// <summary>
+        /// 월드맵에서 돌아갔을 때 발동
+        /// </summary>
+        public void AllStageClear()
+        {                                    
+            StopAllCoroutines();
+            Time.timeScale = 0f;
+
+            UIManager.Instance.AllClearUI.SetUI(true);
+        }
+
+
+        #endregion
 
 
         #region Camera Control
