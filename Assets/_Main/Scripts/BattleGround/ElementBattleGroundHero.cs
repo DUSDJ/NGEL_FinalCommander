@@ -67,6 +67,11 @@ namespace FC
 
         public void OnClickElement()
         {
+            if(GameManager.Instance.NowGameState == EnumGameState.Battle)
+            {
+                return;
+            }
+
             if(Data != null)
             {
                 if(MatchedElement != null)
@@ -80,6 +85,19 @@ namespace FC
                     if(e != null)
                     {
                         UIManager.Instance.InventoryUI.AddHero(Data);
+
+                        // Add 후 이 오브젝트는 Clean
+                        Clean();
+
+                        // 해당 스토리지 저장
+                        UIManager.Instance.BattleGroundUI.CleanHeroes();
+
+                        UIManager.Instance.BattleGroundUI.SelectedLocation.SetHero(
+                            UIManager.Instance.BattleGroundUI.StoreHeroList()
+                            );
+
+                        UIManager.Instance.BattleGroundUI.CleanElements();
+                        UIManager.Instance.BattleGroundUI.UpdateHero();
                     }
                     // 없으면 Alert
                     else
