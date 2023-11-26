@@ -61,6 +61,7 @@ namespace FC
                 }
                 else
                 {
+                    ElementList[i].gameObject.SetActive(true);
                     ElementList[i].Clean();
                 }                
             }
@@ -73,6 +74,7 @@ namespace FC
                 }
                 else
                 {
+                    PositionList[i].gameObject.SetActive(true);
                     PositionList[i].Clean();
                 }
             }
