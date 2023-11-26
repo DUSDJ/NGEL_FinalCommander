@@ -1004,10 +1004,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cfbead390f01ea49a3a8593fcfa351b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 10
+  MaxHP: 2
   Atk: 0
   AtkSpeed: 1
-  MoveSpeed: 0.8
+  MoveSpeed: 4
   SearchRange: 1
   IsAlive: 0
   HitBox: {fileID: 2063015511281707420}

@@ -19,4 +19,9 @@ MonoBehaviour:
   Level: 1
   Elemental: 0
   Camp: 0
-  HeroPrefab: {fileID: 253743706486531062, guid: e15d47c04863fae4c95f9a00c8b206b5, type: 3}
+  BaseHP: 10
+  BaseAtk: 20
+  BaseAtkSpeed: 10
+  SearchRange: 0
+  LevelUpAddHP: 5
+  LevelUpAddAtk: 5
