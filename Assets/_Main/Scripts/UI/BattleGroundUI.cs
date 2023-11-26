@@ -85,6 +85,11 @@ namespace FC
 
         public void SetUI(bool onOff)
         {
+            if(GameManager.Instance.NowGameState == EnumGameState.Battle)
+            {
+                return;
+            }
+
             if (onOff)
             {
                 CleanElements();

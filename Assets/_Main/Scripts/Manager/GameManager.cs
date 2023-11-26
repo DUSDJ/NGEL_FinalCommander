@@ -266,7 +266,7 @@ namespace FC
 
         #region Battle
 
-        public ElementLocation BattleLocation;
+        [HideInInspector] public ElementLocation BattleLocation;
 
 
         public List<Hero> GetActiveHeroes()
@@ -457,6 +457,42 @@ namespace FC
         }
 
         #endregion
+
+
+
+
+
+
+        #region Camera Control
+
+
+        [Header("메인카메라")]
+        public Camera MainCamera;
+
+        public void SetCameraMode(EnumUIState state)
+        {
+            if(MainCamera == null)
+            {
+                MainCamera = GameObject.Find("MainCamera").GetComponent<Camera>();
+            }
+
+
+            switch (state)
+            {
+                case EnumUIState.WorldMap:
+                    // CullingMask에 "Group" Layer를 제거합니다.
+                    MainCamera.cullingMask = MainCamera.cullingMask & ~(1 << LayerMask.NameToLayer("Battle"));
+                    break;
+
+                case EnumUIState.BattleGround:
+                    // CullingMask에 "Group" Layer를 추가합니다.
+                    MainCamera.cullingMask |= 1 << LayerMask.NameToLayer("Battle");
+                    break;
+            }
+        }
+
+        #endregion
+
 
     }
 }

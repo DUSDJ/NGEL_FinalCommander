@@ -74,6 +74,9 @@ namespace FC
                     BattleGroundUI.SetUI(false);
 
                     InventoryUI.SetStateWorldMap();
+
+
+                    GameManager.Instance.SetCameraMode(state);
                     break;
 
 
@@ -82,6 +85,8 @@ namespace FC
                     BattleGroundUI.SetUI(true);
 
                     InventoryUI.SetStateBattleGround();
+
+                    GameManager.Instance.SetCameraMode(state);
                     break;
             }
         }

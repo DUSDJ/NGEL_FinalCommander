@@ -749,6 +749,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8819825623708303401, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
+      propertyPath: MonsterAddValue
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8819825623708303401, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
       propertyPath: BaseMonsterCount
       value: 2
       objectReference: {fileID: 0}
@@ -879,8 +883,12 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8819825623708303401, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
+      propertyPath: MonsterAddValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8819825623708303401, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
       propertyPath: BaseMonsterCount
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8819825623708303406, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
       propertyPath: m_Name
@@ -1009,8 +1017,12 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8819825623708303401, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
+      propertyPath: MonsterAddValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8819825623708303401, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
       propertyPath: BaseMonsterCount
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8819825623708303406, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
       propertyPath: m_Name
@@ -1139,8 +1151,12 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8819825623708303401, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
+      propertyPath: MonsterAddValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8819825623708303401, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
       propertyPath: BaseMonsterCount
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8819825623708303406, guid: 902359b2ed7420444920e515e7931bb6, type: 3}
       propertyPath: m_Name
