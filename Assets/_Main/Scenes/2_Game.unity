@@ -2186,7 +2186,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2676871891257861852, guid: d2b11dc5406db1d4db066695edf5b386, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -650
       objectReference: {fileID: 0}
     - target: {fileID: 2676871891257861852, guid: d2b11dc5406db1d4db066695edf5b386, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3137,6 +3137,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5968114467217536995, guid: ce0c6bbc7566ae64196af5e991ec9fa1, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5968114467217536997, guid: ce0c6bbc7566ae64196af5e991ec9fa1, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3458,6 +3462,18 @@ PrefabInstance:
     - target: {fileID: 6070516377191854261, guid: ef4752679e2986d40aac76fee49394e2, type: 3}
       propertyPath: m_Name
       value: WorldMapCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6070516377191854262, guid: ef4752679e2986d40aac76fee49394e2, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8113555632975270996, guid: ef4752679e2986d40aac76fee49394e2, type: 3}
+      propertyPath: MonsterAddValue
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8113555632975270996, guid: ef4752679e2986d40aac76fee49394e2, type: 3}
+      propertyPath: BaseMonsterCount
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef4752679e2986d40aac76fee49394e2, type: 3}
