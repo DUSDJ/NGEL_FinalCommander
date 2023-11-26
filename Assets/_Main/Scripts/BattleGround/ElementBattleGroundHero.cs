@@ -30,6 +30,7 @@ namespace FC
 
 
             ActivationObject.SetActive(true);
+            gameObject.SetActive(true);
         }
 
 
@@ -41,6 +42,13 @@ namespace FC
             Data = null;
             ActivationObject.SetActive(false);
             SelectFrame.SetActive(false);
+        }
+
+        public void Disable()
+        {
+            Clean();
+
+            gameObject.SetActive(false);
         }
 
 

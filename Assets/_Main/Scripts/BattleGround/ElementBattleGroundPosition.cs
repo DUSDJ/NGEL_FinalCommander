@@ -15,6 +15,8 @@ namespace FC
 
         public Hero SetElement(ScriptableHeroData data)
         {
+            gameObject.SetActive(true);
+
             Data = data;
 
             var prefab = Database.Instance.HeroPrefabDic[data.Key];
@@ -22,6 +24,7 @@ namespace FC
             heroPrefab.gameObject.SetActive(true);
             heroPrefab.Data = data;
             heroPrefab.SetHero();
+
 
             return heroPrefab;
         }
@@ -37,6 +40,14 @@ namespace FC
                 heroPrefab = null;
             }
             
+        }
+
+
+        public void Disable()
+        {
+            Clean();
+
+            gameObject.SetActive(false);
         }
 
 

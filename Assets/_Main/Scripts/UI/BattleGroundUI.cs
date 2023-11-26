@@ -46,6 +46,38 @@ namespace FC
         }
 
 
+        private void InitElement()
+        {
+            if(SelectedLocation == null)
+            {
+                return;
+            }
+
+            for (int i = 0; i < ElementList.Count; i++)
+            {
+                if(i + 1 > SelectedLocation.NumOfSlots)
+                {
+                    ElementList[i].Disable();
+                }
+                else
+                {
+                    ElementList[i].Clean();
+                }                
+            }
+
+            for (int i = 0; i < PositionList.Count; i++)
+            {
+                if (i + 1 > SelectedLocation.NumOfSlots)
+                {
+                    PositionList[i].Disable();
+                }
+                else
+                {
+                    PositionList[i].Clean();
+                }
+            }
+        }
+
 
 
 
@@ -54,6 +86,8 @@ namespace FC
             if (onOff)
             {
                 CleanElements();
+
+                InitElement();
 
                 UpdateElements();
 
@@ -87,7 +121,7 @@ namespace FC
                 return;
             }
 
-
+            
             NumOfMonsterText.text = string.Format("{0}", SelectedLocation.NowMonsterCount);
             LocationNameText.text = SelectedLocation.LocationName;
             LocationTypeIcon.sprite = Database.Instance.GetLocationImage(SelectedLocation.LocationType);
@@ -103,6 +137,11 @@ namespace FC
         {
             for (int i = 0; i < ElementList.Count; i++)
             {
+                if(ElementList[i].gameObject.activeSelf == false)
+                {
+                    continue;
+                }
+
                 if (ElementList[i].Data == null)
                 {
                     return ElementList[i];
