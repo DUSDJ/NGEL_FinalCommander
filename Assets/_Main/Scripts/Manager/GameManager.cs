@@ -231,7 +231,7 @@ namespace FC
                 // N초당 Slot 수만큼 생성
                 for (int i = 0; i < slots; i++)
                 {
-                    if(count >= now)
+                    if(now >= count)
                     {
                         yield break;
                     }
