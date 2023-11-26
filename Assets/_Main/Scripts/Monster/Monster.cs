@@ -167,7 +167,7 @@ namespace FC
             gameObject.SetActive(true);
 
             NowHP = MaxHP;
-            transform.position = pos;
+            transform.position = (Vector2)pos;
             IsAlive = true;
 
             if (routine != null)
