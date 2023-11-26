@@ -13,16 +13,7 @@ namespace FC
         public List<ElementBattleGroundPosition> PositionList = new List<ElementBattleGroundPosition>();
 
 
-        public List<Transform> SpawnPositionList = new List<Transform>();
-
-
         private List<ElementInventoryHero> selectedElements = new List<ElementInventoryHero>();
-
-
-
-
-        [Header("Monster Parent")]
-        public Transform MonsterParent;
 
         [Header("Monster Spawn Point")]
         public List<Transform> SpawnPoint;
