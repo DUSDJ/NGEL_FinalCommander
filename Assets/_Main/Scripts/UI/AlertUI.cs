@@ -124,7 +124,6 @@ namespace FC
         {
             StopRoutine();
 
-
             routine = AlertRoutine();
             StartCoroutine(routine);
         }
@@ -145,6 +144,7 @@ namespace FC
         {
             if (tw != null)
             {
+                AlertTransform.DOKill();
                 tw.Kill();
             }
 

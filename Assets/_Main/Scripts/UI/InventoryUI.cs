@@ -7,12 +7,20 @@ namespace FC
 {
     public class InventoryUI : MonoBehaviour
     {
+
+        public IncomeEffect GoldEffect;
+        
         public TextMeshProUGUI GoldText;
+
+        public void SetGoldEffect(string msg)
+        {
+            GoldEffect.SetEffect(msg);
+        }
 
         public void UpdateGold(long value)
         {
             GoldText.text = string.Format("{0}", value);
-        }
+        }        
 
 
         public GameObject CreationButton;

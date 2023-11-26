@@ -1,11 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace FC
 {
     public class Effect : MonoBehaviour
     {
+        public TextMeshPro TextBox;
+        public void SetText(string msg)
+        {
+            if(TextBox != null)
+            {
+                TextBox.text = msg;
+            }
+        }
+
+
+
         public bool ForceUseDuration = false;
 
         public float Duration;  // 지속시간

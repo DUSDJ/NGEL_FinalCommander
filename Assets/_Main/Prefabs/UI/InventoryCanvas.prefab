@@ -997,6 +997,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 235a91af0147d0141b482c86781d6fc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GoldEffectPos: {fileID: 0}
+  GoldEffect: {fileID: 1529042367}
   GoldText: {fileID: 8508182268890588020}
   CreationButton: {fileID: 8508182268060135873}
   HeroInfoButton: {fileID: 8508182268423429838}
@@ -2849,11 +2851,46 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8d9d23ab99a02b4dad802f23705378a, type: 3}
+--- !u!1 &8508182267770679851 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4860700803079701816, guid: e8d9d23ab99a02b4dad802f23705378a, type: 3}
+  m_PrefabInstance: {fileID: 3848201710555772691}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1529042367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8508182267770679851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b906d99ef81a68b458f828d3f7578ee5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 8508182267770679853}
+  IncomeText: {fileID: 8508182268354788381}
 --- !u!224 &8508182267770679852 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4860700803079701823, guid: e8d9d23ab99a02b4dad802f23705378a, type: 3}
   m_PrefabInstance: {fileID: 3848201710555772691}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &8508182267770679853 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4860700803079701822, guid: e8d9d23ab99a02b4dad802f23705378a, type: 3}
+  m_PrefabInstance: {fileID: 3848201710555772691}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8508182268354788381 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4860700804575283982, guid: e8d9d23ab99a02b4dad802f23705378a, type: 3}
+  m_PrefabInstance: {fileID: 3848201710555772691}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8508182266894897098
 PrefabInstance:
   m_ObjectHideFlags: 0
