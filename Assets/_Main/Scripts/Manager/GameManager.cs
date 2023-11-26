@@ -216,17 +216,39 @@ namespace FC
 
             while (true)
             {
+                // 남은 생성값 확인
+                var count = BattleLocation.NowMonsterCount;
+                var now = MonsterManager.Instance.GetActiveMonster().Count;
+
+                // 현존하는 수가 몬스터 수보다 많으면 생성 종료
+                if(now >= count)
+                {
+                    yield break;
+                }
+
+
+
                 // N초당 Slot 수만큼 생성
                 for (int i = 0; i < slots; i++)
                 {
+                    if(count >= now)
+                    {
+                        yield break;
+                    }
+
+
                     int rand = UnityEngine.Random.Range(0, monsterPrefabs.Count);
                     var randMonster = monsterPrefabs[rand];
 
                     int spawnPointRand = UnityEngine.Random.Range(0, UIManager.Instance.BattleGroundUI.SpawnPoint.Count);
                     var point = UIManager.Instance.BattleGroundUI.SpawnPoint[spawnPointRand];
                     MonsterManager.Instance.SetMonster(randMonster.name, point.position);
+
+                    // 생성+1
+                    now += 1;
                 }
                 
+
                 yield return wait;
             }
 
@@ -243,18 +265,19 @@ namespace FC
         #region Battle
 
         public ElementLocation BattleLocation;
-        public List<Hero> HeroList;
 
 
         public List<Hero> GetActiveHeroes()
         {
             List<Hero> list = new List<Hero>();
 
-            for (int i = 0; i < HeroList.Count; i++)
+            var heroes = BattleLocation.HeroList;
+
+            for (int i = 0; i < heroes.Count; i++)
             {
-                if (HeroList[i].IsAlive)
+                if (heroes[i].IsAlive)
                 {
-                    list.Add(HeroList[i]);
+                    list.Add(heroes[i]);
                 }
             }
 
@@ -272,10 +295,10 @@ namespace FC
 
             // UI 처리 & 유닛 목록 가져옴
             BattleLocation = UIManager.Instance.BattleGroundUI.SelectedLocation;
-            HeroList = UIManager.Instance.BattleGroundUI.EngageHeroList();
+            BattleLocation.SetHero(UIManager.Instance.BattleGroundUI.EngageHeroList());            
 
             // 유닛이 하나라도 슬롯에 올라가 있어야 배틀 가능
-            if (HeroList == null || HeroList.Count <= 0)
+            if (BattleLocation.HeroList == null || BattleLocation.HeroList.Count <= 0)
             {
                 return;
             }
@@ -308,12 +331,19 @@ namespace FC
 
         public void HeroDead(Hero h)
         {
-
-
             // 승리조건
-            if (BattleLocation.NowMonsterCount <= 0)
+            int leftHero = 0;
+            for (int i = 0; i < BattleLocation.HeroList.Count; i++)
             {
-                BattleWin();
+                if (BattleLocation.HeroList[i].IsAlive)
+                {
+                    leftHero += 1;
+                }
+            }
+
+            if (leftHero <= 0)
+            {
+                BattleLost();
             }
         }
 
@@ -334,12 +364,65 @@ namespace FC
 
         private void BattleWin()
         {
+            Debug.Log("Win");
 
+            NowGameState = EnumGameState.OutGame;
+
+            // 루틴 정지
+            if (battleRoutine != null)
+            {
+                StopCoroutine(battleRoutine);
+            }
+            battleRoutine = null;
+
+
+            // Hero는 잔류함
+            // 사망한 Hero만 리스트에서 제거
+            var list = new List<Hero>(BattleLocation.HeroList);
+            for (int i = 0; i < BattleLocation.HeroList.Count; i++)
+            {
+                if (BattleLocation.HeroList[i].IsAlive)
+                {
+                    list.Add(BattleLocation.HeroList[i]);
+                }
+            }
+            BattleLocation.HeroList = list;
+
+            // Monster Clean
+            MonsterManager.Instance.Clean();
+
+            // BattleGround Clean?
+            UIManager.Instance.BattleGroundUI.CleanElements();
+
+            // Alert
+            UIManager.Instance.AlertUI.SetTextMiddleBlue("승리!");
         }
 
         private void BattleLost()
         {
+            Debug.Log("Lost");
 
+            NowGameState = EnumGameState.OutGame;
+
+            // 루틴 정지
+            if (battleRoutine != null)
+            {
+                StopCoroutine(battleRoutine);
+            }
+            battleRoutine = null;
+
+
+            // Hero Clean
+            BattleLocation.HeroList.Clear();
+
+            // Monster Clean
+            MonsterManager.Instance.Clean();
+
+            // BattleGround Clean
+            UIManager.Instance.BattleGroundUI.CleanElements();
+
+            // Alert
+            UIManager.Instance.AlertUI.SetTextMiddleRed("패배!");
         }
 
         #endregion

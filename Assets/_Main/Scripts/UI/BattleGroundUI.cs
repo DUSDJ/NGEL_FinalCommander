@@ -142,7 +142,8 @@ namespace FC
                 var bgElem = GetEmptyElement();
                 if (bgElem == null)
                 {
-                    Debug.LogError("출격 추가할 칸이 없음");
+                    // Alert
+                    UIManager.Instance.AlertUI.SetTextMiddleBlue("슬롯이 가득 찼습니다.");
                     return;
                 }
 

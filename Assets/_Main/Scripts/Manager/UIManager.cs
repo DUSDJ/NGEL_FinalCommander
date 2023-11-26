@@ -47,6 +47,7 @@ namespace FC
         [HideInInspector] public WorldMapUI WorldMapUI;
         [HideInInspector] public InventoryUI InventoryUI;  
         [HideInInspector] public BattleGroundUI BattleGroundUI;
+        [HideInInspector] public AlertUI AlertUI;
 
 
 
@@ -168,9 +169,11 @@ namespace FC
             InventoryUI = FindObjectOfType<InventoryUI>(true);
             InventoryUI.Init();
 
-
             BattleGroundUI = FindObjectOfType<BattleGroundUI>(true);
             BattleGroundUI.Init();
+
+            AlertUI = FindObjectOfType<AlertUI>(true);
+            AlertUI.Init();
 
 
             SetState(EnumUIState.WorldMap);

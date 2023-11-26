@@ -91,6 +91,11 @@ namespace FC
             }
             else if(UIManager.Instance.NowState == EnumUIState.BattleGround)
             {
+                if (GameManager.Instance.NowGameState != EnumGameState.OutGame)
+                {
+                    return;
+                }
+
                 var parent = UIManager.Instance.BattleGroundUI;
                 parent.AddHeroToElement(this);
             }            

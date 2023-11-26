@@ -10,6 +10,8 @@ namespace FC
 
     public class ElementLocation : MonoBehaviour
     {
+        [HideInInspector] public List<Hero> HeroList;
+
 
         [Header("데이터")]
         public string LocationName;
@@ -51,6 +53,8 @@ namespace FC
 
         public void Init()
         {
+            HeroList = new List<Hero>();
+
             NowMonsterCount = BaseMonsterCount;
             NowOwner = BaseOwner;
 
@@ -91,6 +95,12 @@ namespace FC
             UIManager.Instance.BattleGroundUI.UpdateLocationIfSelected(this);
         }
 
+
+
+        public void SetHero(List<Hero> list)
+        {
+            HeroList = new List<Hero>(list);
+        }
 
 
         public void DecreaseMonster(int value)

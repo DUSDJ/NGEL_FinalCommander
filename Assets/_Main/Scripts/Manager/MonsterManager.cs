@@ -86,6 +86,17 @@ namespace FC
         }
 
 
+        public void Clean()
+        {
+            foreach (var item in ListDic)
+            {
+                foreach (var m in item.Value)
+                {
+                    m.Clean();
+                }
+            }
+        }
+
         #endregion
 
 

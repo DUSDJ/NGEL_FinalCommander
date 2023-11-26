@@ -165,7 +165,8 @@ namespace FC
             // 빈 칸 없음 : 봅기 불가
             else
             {
-                Debug.LogError("빈 칸 없어서 뽑기 불가!");
+                // Alert
+                UIManager.Instance.AlertUI.SetTextMiddleRed("슬롯이 부족합니다!");                
                 return;
             }
         }
@@ -239,6 +240,11 @@ namespace FC
 
         public void OnClickBGCleanButton()
         {
+            if(GameManager.Instance.NowGameState == EnumGameState.Battle)
+            {
+                return;
+            }
+
             UIManager.Instance.BattleGroundUI.CleanElements();
         }
 

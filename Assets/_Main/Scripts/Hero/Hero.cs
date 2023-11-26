@@ -181,6 +181,13 @@ namespace FC
             
             while (true)
             {
+                if(GameManager.Instance.NowGameState != EnumGameState.Battle)
+                {
+                    yield return null;
+                    continue;
+                }
+
+
                 Vector3 heroPos = transform.position;
 
                 var enemies = mm.GetActiveMonster();
@@ -329,6 +336,8 @@ namespace FC
         {
             IsAlive = false;
             gameObject.SetActive(false);
+
+            GameManager.Instance.HeroDead(this);
         }
 
 
