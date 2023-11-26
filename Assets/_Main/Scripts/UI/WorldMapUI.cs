@@ -59,9 +59,25 @@ namespace FC
         {
             if(UIManager.Instance.NowState == EnumUIState.WorldMap)
             {
-                UIManager.Instance.BattleGroundUI.SelectedLocation = e;
-                UIManager.Instance.SetState(EnumUIState.BattleGround);
-            }            
+                if(GameManager.Instance.NowGameState == EnumGameState.Battle)
+                {
+                    if(GameManager.Instance.BattleLocation != e)
+                    {
+                        UIManager.Instance.AlertUI.SetTextMiddleRed("다른 지역이 전투중입니다.");
+                        return;
+                    }
+                    else
+                    {
+                        UIManager.Instance.BattleGroundUI.SelectedLocation = e;
+                        UIManager.Instance.SetState(EnumUIState.BattleGround);
+                    }
+                }
+                else
+                {
+                    UIManager.Instance.BattleGroundUI.SelectedLocation = e;
+                    UIManager.Instance.SetState(EnumUIState.BattleGround);
+                }                
+            }
         }
 
 
