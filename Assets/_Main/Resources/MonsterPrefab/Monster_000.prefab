@@ -1005,9 +1005,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHP: 2
-  Atk: 0
+  Atk: 1
   AtkSpeed: 1
-  MoveSpeed: 4
+  MoveSpeed: 3
   SearchRange: 1
   IsAlive: 0
   HitBox: {fileID: 2063015511281707420}
