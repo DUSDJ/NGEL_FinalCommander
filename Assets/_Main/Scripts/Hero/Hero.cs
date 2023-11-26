@@ -10,6 +10,9 @@ namespace FC
 {
     public class Hero : MonoBehaviour
     {
+        [Header("전투 애니메이션")]
+        public Animator anim;
+
 
         [Header("회전할 거")]
         public Transform RotationTransform;
@@ -363,6 +366,8 @@ namespace FC
 
 
                         // 3-2. 공격 애니메이션 시작 (3-1의 후딜 반영)
+                        anim.SetTrigger("Action");
+
                         /* 공격 애니메이션 재생시간 설정 
                            애니메이션 공속까지는 그대로 공격모션 사용
                            AttackDelay보다 큰가 작은가 계산해서, 모션시간을 줄이기만 한다.
