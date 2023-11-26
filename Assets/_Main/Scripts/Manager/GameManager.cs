@@ -58,7 +58,11 @@ namespace FC
 
         [Header("적 생성 시간(초)")]
         public float MonsterSpawnTime = 2.0f;
-       
+
+        [Header("한번에 생성되는 몬스터 수")]
+        public int NumOfMonsterSpawn = 2;
+
+
         [Header("골드")]
         public long gold = 10000;
         public long Gold
@@ -201,13 +205,12 @@ namespace FC
 
         }
 
-
-
-
+        
         private IEnumerator BattleRoutine()
         {
             var wait = new WaitForSeconds(MonsterSpawnTime);
-            var slots = BattleLocation.NumOfSlots;
+            // var slots = BattleLocation.NumOfSlots;
+            var slots = NumOfMonsterSpawn;
 
             var monsterPrefabs = BattleLocation.MonsterPrefabs;
 

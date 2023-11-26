@@ -51,7 +51,7 @@ namespace FC
             for (int i = 0; i < num; i++)
             {
                 var e = Instantiate(Database.Instance.MonsterPrefabDic[key]);
-                e.transform.SetParent(UIManager.Instance.BattleGroundUI.MonsterParent, false);
+                e.transform.SetParent(transform, false);
                 ListDic[key].Add(e);
                 e.gameObject.SetActive(false);
             }
