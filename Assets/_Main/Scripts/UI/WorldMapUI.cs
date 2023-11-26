@@ -31,6 +31,9 @@ namespace FC
             if (onOff)
             {
                 gameObject.SetActive(true);
+
+
+                CheckAllStageClear();
             }
             else
             {
@@ -54,6 +57,21 @@ namespace FC
                 LocationList[i].UpdateRoutine();
             }
 
+        }
+
+        public bool CheckAllStageClear()
+        {
+            for (int i = 0; i < LocationList.Count; i++)
+            {
+                if(LocationList[i].NowOwner != EnumLocationOwner.Player)
+                {
+                    return false;
+                }
+            }
+
+
+            GameManager.Instance.AllStageClear();
+            return true;
         }
 
 
