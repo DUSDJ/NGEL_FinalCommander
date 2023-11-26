@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -9,6 +10,45 @@ namespace FC
 {
     public class Hero : MonoBehaviour
     {
+        #region GaugeBar
+
+        [Header("게이지바 UI")]
+        public CanvasGroup GaugeBarCanvasGroup;
+        public Image GaugeBar;
+
+        private void InitGaugeBarUI()
+        {
+            if(GaugeBarCanvasGroup == null || GaugeBar == null)
+            {
+                return;
+            }
+
+            GaugeBarCanvasGroup.gameObject.SetActive(true);
+            GaugeBarCanvasGroup.alpha = 0f;
+        }
+
+        private void UpdateGaugeBarUI()
+        {
+            if (GaugeBarCanvasGroup == null || GaugeBar == null)
+            {
+                return;
+            }
+
+            float rate = (float)NowHP / MaxHP;
+            GaugeBar.fillAmount = rate;
+
+            if (rate < 1.0f)
+            {
+                GaugeBarCanvasGroup.DOComplete();
+                GaugeBarCanvasGroup.alpha = 1.0f;
+
+                GaugeBarCanvasGroup.DOFade(0f, 1.0f);
+            }
+        }
+
+        #endregion
+
+
         [HideInInspector] public ScriptableHeroData Data = null;
 
 
@@ -26,7 +66,9 @@ namespace FC
                 value = Mathf.Clamp(value, 0, MaxHP);
                 nowHP = value;
 
-                if(nowHP <= 0)
+                UpdateGaugeBarUI();
+
+                if (nowHP <= 0)
                 {
                     Dead();
                 }
@@ -73,6 +115,8 @@ namespace FC
 
         public void SetHero()
         {
+            InitGaugeBarUI();
+
             SetHeroData();
 
             NowHP = MaxHP;

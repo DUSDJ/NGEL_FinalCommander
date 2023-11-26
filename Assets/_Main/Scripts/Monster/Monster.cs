@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,36 @@ namespace FC
 {
     public class Monster : MonoBehaviour
     {
+        #region GaugeBar
+
+        [Header("게이지바 UI")]
+        public CanvasGroup GaugeBarCanvasGroup;
+        public Image GaugeBar;
+
+        private void InitGaugeBarUI()
+        {
+            GaugeBarCanvasGroup.gameObject.SetActive(true);
+            GaugeBarCanvasGroup.alpha = 0f;
+        }
+
+        private void UpdateGaugeBarUI()
+        {
+            float rate = (float)NowHP / MaxHP;
+            GaugeBar.fillAmount = rate;
+
+            if (rate < 1.0f)
+            {
+                GaugeBarCanvasGroup.DOComplete();
+                GaugeBarCanvasGroup.alpha = 1.0f;
+
+                GaugeBarCanvasGroup.DOFade(0f, 1.0f);
+            }
+        }
+
+        #endregion
+
+
+
 
         public int MaxHP;
 
@@ -23,6 +54,8 @@ namespace FC
             {
                 value = Mathf.Clamp(value, 0, MaxHP);
                 nowHP = value;
+
+                UpdateGaugeBarUI();
 
                 if (nowHP <= 0)
                 {
@@ -115,6 +148,8 @@ namespace FC
 
         public void SetMonster(Vector3 pos)
         {
+            InitGaugeBarUI();
+
             gameObject.SetActive(true);
 
             NowHP = MaxHP;
