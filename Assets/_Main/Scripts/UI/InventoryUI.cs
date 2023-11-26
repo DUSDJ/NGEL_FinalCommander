@@ -145,7 +145,20 @@ namespace FC
         }
 
 
+        public void AddHero(ScriptableHeroData data)
+        {
+            var e = GetEmptyElement();
 
+            if (e == null)
+            {
+                return;
+            }
+
+            e.SetElement(data);
+
+            // Effect
+            EffectManager.Instance.SetEffect("Effect_LevelUp", e.transform.position);
+        }
 
 
 

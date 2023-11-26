@@ -295,18 +295,34 @@ namespace FC
                 return;
             }
 
-            // UI 처리 & 유닛 목록 가져옴
-            BattleLocation = UIManager.Instance.BattleGroundUI.SelectedLocation;
-            BattleLocation.SetHero(UIManager.Instance.BattleGroundUI.EngageHeroList());            
-
-            // 유닛이 하나라도 슬롯에 올라가 있어야 배틀 가능
-            if (BattleLocation.HeroList == null || BattleLocation.HeroList.Count <= 0)
+            // 출격
+            if(UIManager.Instance.BattleGroundUI.SelectedLocation.NowOwner == EnumLocationOwner.Enemy)
             {
-                return;
+                // UI 처리 & 유닛 목록 가져옴
+                BattleLocation = UIManager.Instance.BattleGroundUI.SelectedLocation;
+                BattleLocation.SetHero(UIManager.Instance.BattleGroundUI.EngageHeroList());
+
+                // 유닛이 하나라도 슬롯에 올라가 있어야 배틀 가능
+                if (BattleLocation.HeroList == null || BattleLocation.HeroList.Count <= 0)
+                {
+                    return;
+                }
+
+                Battle();
             }
+            // 수납
+            else
+            {
+                UIManager.Instance.BattleGroundUI.CleanHeroes();
 
+                UIManager.Instance.BattleGroundUI.SelectedLocation.SetHero(
+                    UIManager.Instance.BattleGroundUI.StoreHeroList()
+                    );
 
-            Battle();
+                UIManager.Instance.BattleGroundUI.CleanElements();
+                UIManager.Instance.BattleGroundUI.UpdateHero();
+            }
+           
         }
 
 
@@ -393,11 +409,24 @@ namespace FC
             // Monster Clean
             MonsterManager.Instance.Clean();
 
-            // BattleGround Clean?
-            // UIManager.Instance.BattleGroundUI.CleanElements();
+            
+            // Owner
+            BattleLocation.NowOwner = EnumLocationOwner.Player;
+            BattleLocation.UpdateElement();
 
+            // BattleGround Hero만 보여줌
+            UIManager.Instance.BattleGroundUI.CleanElements();
+            UIManager.Instance.BattleGroundUI.UpdateHero();
+
+
+            // Reward
+            Income += BattleLocation.RewardGold;
+            
             // Alert
             UIManager.Instance.AlertUI.SetTextMiddleBlue("승리!");
+            
+
+            BattleLocation = null;
         }
 
         private void BattleLost()

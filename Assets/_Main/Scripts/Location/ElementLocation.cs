@@ -39,9 +39,12 @@ namespace FC
 
 
         [Header("UI")]
+        public TextMeshProUGUI LocationNameText;
         public Image LocationIcon;
         public Image ElementalIcon;
         public TextMeshProUGUI NumOfMonsterText;
+
+        public Image ClearLocationIcon;
 
         public IncomeEffect IncomeEffect;
 
@@ -66,12 +69,23 @@ namespace FC
 
         public void UpdateElement()
         {
+            if(NowOwner == EnumLocationOwner.Player)
+            {
+                ClearLocationIcon.sprite = Database.Instance.GetLocationImage(LocationType);
+                ClearLocationIcon.gameObject.SetActive(true);
+            }
+            else
+            {
+                ClearLocationIcon.gameObject.SetActive(false);
+            }
+
+
+            LocationNameText.text = string.Format("{0}", LocationName);
             NumOfMonsterText.text = string.Format("{0}", NowMonsterCount);
 
             LocationIcon.sprite = Database.Instance.GetLocationImage(LocationType);
             ElementalIcon.sprite = Database.Instance.GetElementalImage((int)Elemental);
         }
-
 
 
 

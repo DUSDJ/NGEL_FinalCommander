@@ -93,6 +93,8 @@ namespace FC
 
                 UpdateElements();
 
+                UpdateHero();
+
                 gameObject.SetActive(true);
             }
             else
@@ -123,14 +125,46 @@ namespace FC
                 return;
             }
 
-            
             NumOfMonsterText.text = string.Format("{0}", SelectedLocation.NowMonsterCount);
             LocationNameText.text = SelectedLocation.LocationName;
             LocationTypeIcon.sprite = Database.Instance.GetLocationImage(SelectedLocation.LocationType);
             LocationElementalIcon.sprite = Database.Instance.GetElementalImage((int)SelectedLocation.Elemental);
-    }
+        }
 
+        public void UpdateHero()
+        {
+            if(SelectedLocation == null)
+            {
+                return;
+            }
 
+            if(SelectedLocation.NowOwner != EnumLocationOwner.Player)
+            {
+                return;
+            }
+
+            if (SelectedLocation.HeroList != null
+                && SelectedLocation.HeroList.Count > 0)
+            {
+                for (int i = 0; i < SelectedLocation.HeroList.Count; i++)
+                {
+                    if (!SelectedLocation.HeroList[i].IsAlive)
+                    {
+                        continue;
+                    }
+
+                    var bgElem = GetEmptyElement();
+                    if (bgElem == null)
+                    {
+                        // Alert
+                        // UIManager.Instance.AlertUI.SetTextMiddleBlue("슬롯이 가득 찼습니다.");
+                        return;
+                    }
+
+                    bgElem.SetElement(SelectedLocation.HeroList[i]);
+                }
+            }
+        }
 
 
 
@@ -208,6 +242,15 @@ namespace FC
         }
 
 
+        public void CleanHeroes()
+        {
+            for (int i = 0; i < PositionList.Count; i++)
+            {
+                PositionList[i].Clean();
+            }
+        }
+
+
         public void CleanElements()
         {
             for (int i = 0; i < PositionList.Count; i++)
@@ -253,7 +296,7 @@ namespace FC
                 // 상단 배치에 프리팹 생성됨
                 var pos = GetEmptyPosition();
                 if (pos != null)
-                {                    
+                {
                     var hero = pos.SetElement(selectedElements[i].Data);
                     heroes.Add(hero);
 
@@ -265,6 +308,46 @@ namespace FC
             }
             selectedElements.Clear();
 
+
+            return heroes;
+        }
+
+
+        public List<Hero> StoreHeroList()
+        {
+            List<Hero> heroes = new List<Hero>();
+
+
+            // 하단 인벤토리에서 영웅 제거됨
+            for (int i = 0; i < selectedElements.Count; i++)
+            {
+                selectedElements[i].Clean();
+            }
+            selectedElements.Clear();
+
+
+            // 상단 슬롯 모두 프리팹 생성
+            for (int i = 0; i < ElementList.Count; i++)
+            {
+                if (ElementList[i].gameObject.activeSelf == false)
+                {
+                    continue;
+                }
+
+                if(ElementList[i].Data != null)
+                {
+                    // 상단 배치에 프리팹 생성됨
+                    var pos = GetEmptyPosition();
+                    if (pos != null)
+                    {
+                        var hero = pos.SetElement(ElementList[i].Data);
+                        heroes.Add(hero);
+
+                        // Effect
+                        EffectManager.Instance.SetEffect("Effect_Teleport", ElementList[i].transform.position);
+                    }                    
+                }                
+            }
 
             return heroes;
         }
