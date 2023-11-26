@@ -288,6 +288,20 @@ namespace FC
 
 
 
+        public bool CheckCanEngage()
+        {
+            for (int i = 0; i < selectedElements.Count; i++)
+            {
+                if(selectedElements[i].Data != null)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+
         /// <summary>
         /// 출격하기
         /// </summary>

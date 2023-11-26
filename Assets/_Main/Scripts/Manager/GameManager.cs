@@ -316,15 +316,14 @@ namespace FC
             // 출격
             if(UIManager.Instance.BattleGroundUI.SelectedLocation.NowOwner == EnumLocationOwner.Enemy)
             {
-                // UI 처리 & 유닛 목록 가져옴
-                BattleLocation = UIManager.Instance.BattleGroundUI.SelectedLocation;
-                BattleLocation.SetHero(UIManager.Instance.BattleGroundUI.EngageHeroList());
-
-                // 유닛이 하나라도 슬롯에 올라가 있어야 배틀 가능
-                if (BattleLocation.HeroList == null || BattleLocation.HeroList.Count <= 0)
+                if (!UIManager.Instance.BattleGroundUI.CheckCanEngage())
                 {
                     return;
                 }
+
+                // UI 처리 & 유닛 목록 가져옴
+                BattleLocation = UIManager.Instance.BattleGroundUI.SelectedLocation;
+                BattleLocation.SetHero(UIManager.Instance.BattleGroundUI.EngageHeroList());
 
                 Battle();
             }
@@ -412,6 +411,10 @@ namespace FC
             battleRoutine = null;
 
 
+            // Reward
+            Income += BattleLocation.RewardGold;
+
+
             // Hero는 잔류함
             // 사망한 Hero만 리스트에서 제거
             var list = new List<Hero>();
@@ -430,21 +433,21 @@ namespace FC
             
             // Owner
             BattleLocation.NowOwner = EnumLocationOwner.Player;
-            BattleLocation.UpdateElement();
+            // BattleLocation.UpdateElement(); // 아래에서 자동 Update됨
+
+
+            BattleLocation = null;
+            
+
+            // Owner 변경에 따른 Lock 체크 때문에 모든 ElementLocation UpdateElement
+            UIManager.Instance.WorldMapUI.UpdateElement();
 
             // BattleGround Hero만 보여줌
             UIManager.Instance.BattleGroundUI.CleanElements();
             UIManager.Instance.BattleGroundUI.UpdateHero();
 
-
-            // Reward
-            Income += BattleLocation.RewardGold;
-            
             // Alert
-            UIManager.Instance.AlertUI.SetTextMiddleBlue("승리!");
-            
-
-            BattleLocation = null;
+            UIManager.Instance.AlertUI.SetTextMiddleBlue("승리!");                        
         }
 
         private void BattleLost()

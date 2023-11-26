@@ -39,6 +39,13 @@ namespace FC
         }
 
 
+        public void UpdateElement()
+        {
+            for (int i = 0; i < LocationList.Count; i++)
+            {
+                LocationList[i].UpdateElement();
+            }
+        }
 
         public void UpdateLocation()
         {

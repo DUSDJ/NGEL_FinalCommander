@@ -13,6 +13,10 @@ namespace FC
         [HideInInspector] public List<Hero> HeroList;
 
 
+        [Header("해금 조건")]
+        public List<ElementLocation> UnlockLocation = new List<ElementLocation>();
+
+
         [Header("데이터")]
         public string LocationName;
         public EnumLocationType LocationType = EnumLocationType.Default;
@@ -47,6 +51,8 @@ namespace FC
         public Image ClearLocationIcon;
         public Image BattleLocationIcon;
 
+        public Image LockIcon;
+
         public IncomeEffect IncomeEffect;
 
         
@@ -70,6 +76,20 @@ namespace FC
 
         public void UpdateElement()
         {
+            LockIcon.gameObject.SetActive(false);
+            if (UnlockLocation != null && UnlockLocation.Count > 0)
+            {
+                for (int i = 0; i < UnlockLocation.Count; i++)
+                {
+                    if (UnlockLocation[i].NowOwner != EnumLocationOwner.Player)
+                    {
+                        LockIcon.gameObject.SetActive(true);
+                        break;
+                    }
+                }
+            }
+
+
             BattleLocationIcon.gameObject.SetActive(false);
 
             if (NowOwner == EnumLocationOwner.Player)
@@ -144,6 +164,22 @@ namespace FC
 
         public void OnClickLocation()
         {
+            // 해금
+            if(UnlockLocation != null && UnlockLocation.Count > 0)
+            {
+                for (int i = 0; i < UnlockLocation.Count; i++)
+                {
+                    if(UnlockLocation[i].NowOwner != EnumLocationOwner.Player)
+                    {
+                        UIManager.Instance.AlertUI.SetText("잠겨있습니다.",
+                            UIManager.Instance.AlertUI.AlertColor.AlertRed,
+                            "다른 지역을 먼저 공략하세요.",
+                            UIManager.Instance.AlertUI.AlertColor.AlertRed);
+                        return;
+                    }
+                }
+            }
+
             UIManager.Instance.WorldMapUI.OnClickLocation(this);
         }
     }
