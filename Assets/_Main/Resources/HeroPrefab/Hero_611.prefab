@@ -233,6 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77eaa021869fe7a408d321279dd5ea66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RotationTransform: {fileID: 1182298618956805339}
   GaugeBarCanvasGroup: {fileID: 606665119422154550}
   GaugeBar: {fileID: 5015828421145038567}
   Data: {fileID: 0}
@@ -278,7 +279,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &253743707931315033
 RectTransform:
   m_ObjectHideFlags: 0

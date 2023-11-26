@@ -10,6 +10,11 @@ namespace FC
 {
     public class Hero : MonoBehaviour
     {
+
+        [Header("회전할 거")]
+        public Transform RotationTransform;
+
+
         #region GaugeBar
 
         [Header("게이지바 UI")]
@@ -85,11 +90,16 @@ namespace FC
 
         private IEnumerator routine;
 
+        private Vector3 originScale;
 
 
 
+        #region Awake & Update
 
-        #region Update
+        private void Awake()
+        {
+            originScale = RotationTransform.localScale;
+        }
 
         public void Update()
         {
@@ -115,6 +125,8 @@ namespace FC
 
         public void SetHero()
         {
+            RotationTransform.localScale = originScale;
+
             InitGaugeBarUI();
 
             SetHeroData();
@@ -133,6 +145,15 @@ namespace FC
 
         public void Clean()
         {
+            if (routine != null)
+            {
+                StopCoroutine(routine);
+            }
+
+
+            transform.DOKill();
+            RotationTransform.localScale = originScale;
+
             MaxHP = 0;
             NowHP = 0;
             SearchRange = 0;
@@ -200,17 +221,27 @@ namespace FC
             */
         }
 
+
+
         private void CheckLookTarget(Vector2 pos)
         {
-            if (transform.position.x > pos.x)
+            Vector3 direction = (Vector3)pos - RotationTransform.position;
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            targetRotation *= Quaternion.Euler(new Vector3(30, 0, 0));
+            if (RotationTransform.position.x > pos.x)
             {
-                // Flip(EnumCharacterSide.Left);
+                // targetRotation *= Quaternion.Euler(new Vector3(0, 0, 90));
             }
             else
             {
-                // Flip(EnumCharacterSide.Right);
+                // targetRotation *= Quaternion.Euler(new Vector3(0, 0, -90));
             }
+
+            RotationTransform.rotation = targetRotation;
         }
+
+
+
 
 
 
@@ -378,10 +409,19 @@ namespace FC
 
         public void Dead()
         {
-            IsAlive = false;
-            gameObject.SetActive(false);
+            if (routine != null)
+            {
+                StopCoroutine(routine);
+            }
 
-            GameManager.Instance.HeroDead(this);
+
+            IsAlive = false;
+            //gameObject.SetActive(false);
+
+            RotationTransform.DOScale(0f, 0.5f).OnComplete(() => {
+                Clean();
+                GameManager.Instance.HeroDead(this);
+            });
         }
 
 
