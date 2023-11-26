@@ -396,7 +396,7 @@ namespace FC
 
             // Hero는 잔류함
             // 사망한 Hero만 리스트에서 제거
-            var list = new List<Hero>(BattleLocation.HeroList);
+            var list = new List<Hero>();
             for (int i = 0; i < BattleLocation.HeroList.Count; i++)
             {
                 if (BattleLocation.HeroList[i].IsAlive)
