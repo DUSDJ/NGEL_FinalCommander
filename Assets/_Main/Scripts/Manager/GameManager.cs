@@ -392,7 +392,7 @@ namespace FC
             MonsterManager.Instance.Clean();
 
             // BattleGround Clean?
-            UIManager.Instance.BattleGroundUI.CleanElements();
+            // UIManager.Instance.BattleGroundUI.CleanElements();
 
             // Alert
             UIManager.Instance.AlertUI.SetTextMiddleBlue("승리!");

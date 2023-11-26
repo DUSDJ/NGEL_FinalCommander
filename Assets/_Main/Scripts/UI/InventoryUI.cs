@@ -146,6 +146,13 @@ namespace FC
 
         public void OnClickBtnCreation()
         {
+            if(GameManager.Instance.Gold < Database.Instance.CreationCost)
+            {
+                // Alert
+                UIManager.Instance.AlertUI.SetTextMiddleRed("골드가 부족합니다!");
+                return;
+            }
+
             var e = GetEmptyElement();
 
             // 빈 칸 있음 : 뽑기 가능
