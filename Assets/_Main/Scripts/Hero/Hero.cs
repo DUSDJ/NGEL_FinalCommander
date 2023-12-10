@@ -246,12 +246,13 @@ namespace FC
             RotationTransform.rotation = Quaternion.FromToRotation(Vector3.up, direction);
             */
 
-
+            /*
             Vector3 ShootPoint = pos;
 
             float AngleRad = Mathf.Atan2(ShootPoint.y - RotationTransform.position.y, ShootPoint.x - RotationTransform.position.x);
             float AngleDeg = (180 / Mathf.PI) * AngleRad;
             RotationTransform.rotation = Quaternion.Euler(0, AngleDeg, 0);
+            */
         }
 
 
