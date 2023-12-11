@@ -415,7 +415,7 @@ namespace FC
             NowHP -= atk;
 
             // 사운드
-            AudioManager.Instance.PlayOneShot("SE_HeroDamaged");
+            // AudioManager.Instance.PlayOneShot("SE_HeroDamaged");
             // 이펙트
             EffectManager.Instance.SetEffect("Effect_HeroDamaged", transform.position);
 
