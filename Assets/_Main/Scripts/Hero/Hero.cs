@@ -358,7 +358,7 @@ namespace FC
 
 
                         // 사운드
-                        AudioManager.Instance.PlayOneShot("SE_HeroAttack");
+                        //AudioManager.Instance.PlayOneShot("SE_HeroAttack");
                         // 이펙트
                         EffectManager.Instance.SetEffect("Effect_HeroAttack", transform.position);
 
