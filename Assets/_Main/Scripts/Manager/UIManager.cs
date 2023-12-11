@@ -49,6 +49,7 @@ namespace FC
         [HideInInspector] public BattleGroundUI BattleGroundUI;
         [HideInInspector] public AlertUI AlertUI;
         [HideInInspector] public AllClearUI AllClearUI;
+        [HideInInspector] public TimerUI TimerUI;
 
 
 
@@ -184,6 +185,9 @@ namespace FC
 
             AllClearUI = FindObjectOfType<AllClearUI>(true);
             AllClearUI.Init();
+
+            TimerUI = FindObjectOfType<TimerUI>(true);
+            TimerUI.Init();
 
 
             SetState(EnumUIState.WorldMap);

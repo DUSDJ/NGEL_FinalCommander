@@ -5,17 +5,31 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using TMPro;
 
 namespace FC
 {
     public class AllClearUI : MonoBehaviour
     {
         public Transform Frame;
+        public TextMeshProUGUI TimerText;
 
         public void Init()
         {
+            TimerText.text = "00:00.00";
+
             SetUI(false);
         }
+
+
+        public void SetTimer(double seconds)
+        {
+            var ts = TimeSpan.FromSeconds(seconds).ToString(@"mm\:ss\.ff");
+            TimerText.text = ts;
+        }
+
+
+
 
         public void SetUI(bool onOff)
         {
@@ -38,7 +52,6 @@ namespace FC
             yield return tw.WaitForCompletion();
 
         }
-
 
 
         public void OnClickQuit()
