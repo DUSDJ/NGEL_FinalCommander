@@ -167,7 +167,7 @@ namespace FC
             gameObject.SetActive(true);
 
             NowHP = MaxHP;
-            transform.position = pos;
+            transform.position = (Vector2)pos;
             IsAlive = true;
 
             if (routine != null)
@@ -422,6 +422,12 @@ namespace FC
         public void Damaged(int atk)
         {
             NowHP -= atk;
+
+            // 사운드
+            //AudioManager.Instance.PlayOneShot("SE_MonsterDamaged");
+            // 이펙트
+            EffectManager.Instance.SetEffect("Effect_MonsterDamaged", transform.position);
+
         }
 
         public void Dead()

@@ -148,7 +148,11 @@ namespace FC
             UIManager.Instance.InstantFade(true);
 
 
+            yield return null;
+        }
 
+        public void StartGame()
+        {
             // InCome
             mainRoutine = MainRoutine();
             StartCoroutine(mainRoutine);
@@ -158,8 +162,6 @@ namespace FC
             StartCoroutine(locationRoutine);
 
             Debug.Log("Init End!");
-
-            yield return null;
         }
 
 

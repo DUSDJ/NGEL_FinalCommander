@@ -228,9 +228,11 @@ namespace FC
 
         private void CheckLookTarget(Vector2 pos)
         {
-            Vector3 direction = (Vector3)pos - RotationTransform.position;
+            /*
+            Vector2 direction = (Vector3)pos - RotationTransform.position;
+            
             Quaternion targetRotation = Quaternion.LookRotation(direction);
-            targetRotation *= Quaternion.Euler(new Vector3(30, 0, 0));
+            //targetRotation *= Quaternion.Euler(new Vector3(30, 0, 0));
             if (RotationTransform.position.x > pos.x)
             {
                 // targetRotation *= Quaternion.Euler(new Vector3(0, 0, 90));
@@ -239,8 +241,18 @@ namespace FC
             {
                 // targetRotation *= Quaternion.Euler(new Vector3(0, 0, -90));
             }
+            Debug.Log(targetRotation.eulerAngles);
+            // RotationTransform.rotation = Quaternion.Euler(new Vector3(0,360,0));
+            RotationTransform.rotation = Quaternion.FromToRotation(Vector3.up, direction);
+            */
 
-            RotationTransform.rotation = targetRotation;
+            /*
+            Vector3 ShootPoint = pos;
+
+            float AngleRad = Mathf.Atan2(ShootPoint.y - RotationTransform.position.y, ShootPoint.x - RotationTransform.position.x);
+            float AngleDeg = (180 / Mathf.PI) * AngleRad;
+            RotationTransform.rotation = Quaternion.Euler(0, AngleDeg, 0);
+            */
         }
 
 
@@ -346,18 +358,9 @@ namespace FC
 
 
                         // 사운드
-                        // AudioManager.Instance.PlayOneShot();
+                        //AudioManager.Instance.PlayOneShot("SE_HeroAttack");
                         // 이펙트
-                        /*
-                        if (PlayerCharacter.NowLookSide == EnumCharacterSide.Left)
-                        {
-                            EffectManager.Instance.SetEffect("Effect_NormalAttack_L", PlayerCharacter.transform.position);
-                        }
-                        else
-                        {
-                            EffectManager.Instance.SetEffect("Effect_NormalAttack_R", PlayerCharacter.transform.position);
-                        }
-                        */
+                        EffectManager.Instance.SetEffect("Effect_HeroAttack", transform.position);
 
                         // 3-1. 공격 후딜 대입
                         // 후딜 처리는 공격 시작단계에서 한다.
@@ -410,6 +413,12 @@ namespace FC
         public void Damaged(int atk)
         {
             NowHP -= atk;
+
+            // 사운드
+            // AudioManager.Instance.PlayOneShot("SE_HeroDamaged");
+            // 이펙트
+            EffectManager.Instance.SetEffect("Effect_HeroDamaged", transform.position);
+
         }
 
         public void Dead()
