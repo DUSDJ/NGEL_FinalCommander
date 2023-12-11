@@ -15,6 +15,9 @@ namespace FC
 
         [Header("해금 조건")]
         public List<ElementLocation> UnlockLocation = new List<ElementLocation>();
+        
+        [Header("해금시 On되는 오브젝트들")]
+        public List<GameObject> UnlockActiveObject = new List<GameObject>();
 
 
         [Header("데이터")]
@@ -77,6 +80,12 @@ namespace FC
         public void UpdateElement()
         {
             LockIcon.gameObject.SetActive(false);
+
+            for (int u = 0; u < UnlockActiveObject.Count; u++)
+            {
+                UnlockActiveObject[u].SetActive(true);
+            }
+
             if (UnlockLocation != null && UnlockLocation.Count > 0)
             {
                 for (int i = 0; i < UnlockLocation.Count; i++)
@@ -84,10 +93,16 @@ namespace FC
                     if (UnlockLocation[i].NowOwner != EnumLocationOwner.Player)
                     {
                         LockIcon.gameObject.SetActive(true);
+
+                        for (int u = 0; u < UnlockActiveObject.Count; u++)
+                        {
+                            UnlockActiveObject[u].SetActive(false);
+                        }
+
                         break;
                     }
                 }
-            }
+            }            
 
 
             BattleLocationIcon.gameObject.SetActive(false);
@@ -178,6 +193,11 @@ namespace FC
                         return;
                     }
                 }
+            }
+
+            for (int i = 0; i < UnlockActiveObject.Count; i++)
+            {
+                UnlockActiveObject[i].SetActive(true);
             }
 
             UIManager.Instance.WorldMapUI.OnClickLocation(this);
