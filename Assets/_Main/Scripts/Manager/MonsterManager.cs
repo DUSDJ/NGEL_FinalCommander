@@ -113,7 +113,7 @@ namespace FC
 
             if (Instance == this)
             {
-                DontDestroyOnLoad(this);
+
             }
             else
             {

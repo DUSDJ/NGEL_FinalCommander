@@ -50,7 +50,7 @@ namespace FC
         private IEnumerator locationRoutine;
         private IEnumerator battleRoutine;
 
-        private bool isInit = false;
+        public bool IsInit = false;
 
 
         [Header("적 증가할때까지의 시간(초)")]
@@ -108,7 +108,7 @@ namespace FC
 
             if (Instance == this)
             {
-                DontDestroyOnLoad(this);
+                //DontDestroyOnLoad(this);
             }
             else
             {
@@ -124,15 +124,10 @@ namespace FC
 
         private IEnumerator InitRoutine()
         {
-            if (isInit)
+            if (IsInit)
             {
                 yield break;
             }
-            else
-            {
-                isInit = true;
-            }
-            
 
             // 글로벌 화면 즉시 암전
             UIManager.Instance.InstantFade(false);
@@ -153,13 +148,22 @@ namespace FC
             /* Monster Manager */
             yield return MonsterManager.Instance.InitRoutine();
 
-
-
             // 글로벌 즉시 암전 해제
             UIManager.Instance.InstantFade(true);
 
 
-            yield return null;
+            IsInit = true;
+
+            // 튜토리얼 체크
+            if (IsTutorialClear)
+            {
+                StartGame();
+            }
+            // 튜토리얼 진행 후 거기서 StartGame
+            else
+            {
+
+            }
         }
 
         public void StartGame()
@@ -528,6 +532,21 @@ namespace FC
 
 
         #endregion
+
+
+        #region Reset game
+
+        [HideInInspector]
+        public bool IsTutorialClear = false;
+
+        public void ResetGame()
+        {
+            IsTutorialClear = true;
+            LoadingManager.LoadScene(2);
+        }
+
+        #endregion
+
 
 
         #region Camera Control
