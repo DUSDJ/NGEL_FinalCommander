@@ -102,7 +102,7 @@ namespace FC
             }
 
 
-            AudioClip[] clips_efx = Resources.LoadAll<AudioClip>("Audio/EFX");
+            AudioClip[] clips_efx = Resources.LoadAll<AudioClip>("Audio/SE");
             for (int i = 0; i < clips_efx.Length; i++)
             {
                 Debug.LogFormat("AudioDic Add : {0}", clips_efx[i].name);

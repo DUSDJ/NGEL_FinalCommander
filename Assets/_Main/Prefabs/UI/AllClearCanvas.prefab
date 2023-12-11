@@ -670,7 +670,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2204244805455698849
 RectTransform:
   m_ObjectHideFlags: 0
@@ -737,7 +737,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &2204244805455698855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -767,7 +767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e4c776610da7b547ac4d0df13aa9260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Frame: {fileID: 0}
+  Frame: {fileID: 2204244805797217473}
 --- !u!1 &2204244805610142464
 GameObject:
   m_ObjectHideFlags: 0
@@ -1112,7 +1112,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -79.8, y: 24.1}
+  m_AnchoredPosition: {x: -79.79999, y: 24.1}
   m_SizeDelta: {x: 81.454, y: 81.45}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &4546539359050752382
