@@ -85,7 +85,18 @@ namespace FC
 
         [Header("초당 획득 골드")]
         public float IncomeAddTime = 1.0f;
-        public long Income = 30;        
+        public long Income = 30;
+
+
+        [Header("타이머")]
+        private IEnumerator timerRoutine;
+        public double TimeSeconds = 0;
+
+        public void TimeUpdate()
+        {
+            TimeSeconds += Time.deltaTime;
+            UIManager.Instance.TimerUI.SetTimer(TimeSeconds);
+        }
 
 
         #region Awake & Init
@@ -161,10 +172,22 @@ namespace FC
             locationRoutine = LocationRoutine();
             StartCoroutine(locationRoutine);
 
+            // TimerRoutine
+            timerRoutine = TimerRoutine();
+            StartCoroutine(timerRoutine);
+
             Debug.Log("Init End!");
         }
 
 
+        private IEnumerator TimerRoutine()
+        {
+            while (true)
+            {
+                TimeUpdate();
+                yield return null;
+            }
+        }
 
 
         private IEnumerator MainRoutine()
@@ -499,6 +522,7 @@ namespace FC
             StopAllCoroutines();
             Time.timeScale = 0f;
 
+            UIManager.Instance.AllClearUI.SetTimer(TimeSeconds);
             UIManager.Instance.AllClearUI.SetUI(true);
         }
 
