@@ -424,7 +424,7 @@ namespace FC
             NowHP -= atk;
 
             // 사운드
-            AudioManager.Instance.PlayOneShot("SE_MonsterDamaged");
+            // AudioManager.Instance.PlayOneShot("SE_MonsterDamaged");
             // 이펙트
             EffectManager.Instance.SetEffect("Effect_MonsterDamaged", transform.position);
 
