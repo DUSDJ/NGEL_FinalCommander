@@ -358,18 +358,9 @@ namespace FC
 
 
                         // 사운드
-                        // AudioManager.Instance.PlayOneShot();
+                        AudioManager.Instance.PlayOneShot("SE_HeroAttack");
                         // 이펙트
-                        /*
-                        if (PlayerCharacter.NowLookSide == EnumCharacterSide.Left)
-                        {
-                            EffectManager.Instance.SetEffect("Effect_NormalAttack_L", PlayerCharacter.transform.position);
-                        }
-                        else
-                        {
-                            EffectManager.Instance.SetEffect("Effect_NormalAttack_R", PlayerCharacter.transform.position);
-                        }
-                        */
+                        EffectManager.Instance.SetEffect("Effect_HeroAttack", transform.position);
 
                         // 3-1. 공격 후딜 대입
                         // 후딜 처리는 공격 시작단계에서 한다.
@@ -422,6 +413,12 @@ namespace FC
         public void Damaged(int atk)
         {
             NowHP -= atk;
+
+            // 사운드
+            AudioManager.Instance.PlayOneShot("SE_HeroDamaged");
+            // 이펙트
+            EffectManager.Instance.SetEffect("Effect_HeroDamaged", transform.position);
+
         }
 
         public void Dead()
