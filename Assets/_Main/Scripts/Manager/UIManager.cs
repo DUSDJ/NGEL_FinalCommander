@@ -50,6 +50,7 @@ namespace FC
         [HideInInspector] public AlertUI AlertUI;
         [HideInInspector] public AllClearUI AllClearUI;
         [HideInInspector] public TimerUI TimerUI;
+        [HideInInspector] public TutorialUI TutorialUI;
 
 
 
@@ -155,7 +156,7 @@ namespace FC
 
             if (Instance == this)
             {
-                DontDestroyOnLoad(this);
+                //DontDestroyOnLoad(this);
             }
             else
             {
@@ -188,6 +189,9 @@ namespace FC
 
             TimerUI = FindObjectOfType<TimerUI>(true);
             TimerUI.Init();
+
+            TutorialUI = FindObjectOfType<TutorialUI>(true);
+            TutorialUI.Init();
 
 
             SetState(EnumUIState.WorldMap);

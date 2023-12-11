@@ -16,7 +16,9 @@ namespace FC
 
             anim.SetTrigger("Action");
 
-            IncomeText.text = msg;
+            if (IncomeText != null) {
+                IncomeText.text = msg;
+            }
         }
 
 
