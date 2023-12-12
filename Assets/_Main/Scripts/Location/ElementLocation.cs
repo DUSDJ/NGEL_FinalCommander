@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
@@ -58,7 +59,60 @@ namespace FC
 
         public IncomeEffect IncomeEffect;
 
+
+        #region 월드맵에서 보이는 영웅 슬롯
+
         
+        public List<ElementLocationSlot> Slots = new List<ElementLocationSlot>();
+
+        public void InitSlots()
+        {
+            Slots = GetComponentsInChildren<ElementLocationSlot>(true).ToList();
+
+            for (int i = 0; i < Slots.Count; i++)
+            {
+                Slots[i].gameObject.SetActive(false);
+            }
+
+            for (int i = 0; i < NumOfSlots; i++)
+            {
+                Slots[i].gameObject.SetActive(true);
+            }
+
+            CleanSlots();
+        }
+
+        public void CleanSlots()
+        {
+            for (int i = 0; i < Slots.Count; i++)
+            {
+                Slots[i].Clean();
+            }
+        }
+
+        public void SetSlots(int index, Hero hero)
+        {
+            if(index >= NumOfSlots)
+            {
+                return;
+            }
+
+            Slots[index].SetElement(hero);
+        }
+
+        public void UpdateSlots()
+        {
+            for (int i = 0; i < HeroList.Count; i++)
+            {                
+                Slots[i].SetElement(HeroList[i]);
+            }
+            
+        }
+
+        #endregion
+
+
+
         [HideInInspector] public int NowMonsterCount = 0;
         [HideInInspector] public EnumLocationOwner NowOwner = EnumLocationOwner.Enemy;
 
@@ -68,12 +122,14 @@ namespace FC
 
         public void Init()
         {
+            InitSlots();
+
             HeroList = new List<Hero>();
 
             NowMonsterCount = BaseMonsterCount;
             NowOwner = BaseOwner;
 
-            UpdateElement();
+            UpdateElement();            
         }
 
 
@@ -161,6 +217,12 @@ namespace FC
         public void SetHero(List<Hero> list)
         {
             HeroList = new List<Hero>(list);
+
+            CleanSlots();
+            for (int i = 0; i < HeroList.Count; i++)
+            {
+                SetSlots(i, HeroList[i]);
+            }            
         }
 
 

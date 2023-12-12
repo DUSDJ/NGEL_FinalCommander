@@ -395,6 +395,8 @@ namespace FC
 
         public void HeroDead(Hero h)
         {
+            BattleLocation.UpdateSlots();
+
             // 승리조건
             int leftHero = 0;
             for (int i = 0; i < BattleLocation.HeroList.Count; i++)
