@@ -19,9 +19,9 @@ MonoBehaviour:
   Level: 1
   Elemental: 0
   Camp: 1
-  BaseHP: 100
-  BaseAtk: 1
+  BaseHP: 30
+  BaseAtk: 0
   BaseAtkSpeed: 1
-  SearchRange: 1
-  LevelUpAddHP: 2
-  LevelUpAddAtk: 2
+  SearchRange: 0.3
+  LevelUpAddHP: 4
+  LevelUpAddAtk: 1

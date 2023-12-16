@@ -1389,10 +1389,10 @@ MonoBehaviour:
   RotationTransform: {fileID: 1921521027242314773}
   GaugeBarCanvasGroup: {fileID: 8883361486998372107}
   GaugeBar: {fileID: 3943053056840824538}
-  MaxHP: 10
+  MaxHP: 20
   Atk: 1
-  AtkSpeed: 2
-  MoveSpeed: 4
+  AtkSpeed: 1
+  MoveSpeed: 5
   SearchRange: 1
   IsAlive: 0
   HitBox: {fileID: 2063015511281707420}

@@ -16277,13 +16277,109 @@ PrefabInstance:
       propertyPath: NumOfSlots
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 3339593772102813136, guid: ef4752679e2986d40aac76fee49394e2, type: 3}
+      propertyPath: RewardGold
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3339593772102813136, guid: ef4752679e2986d40aac76fee49394e2, type: 3}
+      propertyPath: MonsterAddValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3339593772102813136, guid: ef4752679e2986d40aac76fee49394e2, type: 3}
+      propertyPath: BaseMonsterCount
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3339593772700577226, guid: ef4752679e2986d40aac76fee49394e2, type: 3}
+      propertyPath: RewardGold
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3339593772700577226, guid: ef4752679e2986d40aac76fee49394e2, type: 3}
+      propertyPath: MonsterAddValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3339593772700577226, guid: ef4752679e2986d40aac76fee49394e2, type: 3}
+      propertyPath: BaseMonsterCount
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3339593773082874702, guid: ef4752679e2986d40aac76fee49394e2, type: 3}
+      propertyPath: NumOfSlots
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3339593773082874702, guid: ef4752679e2986d40aac76fee49394e2, type: 3}
+      propertyPath: RewardGold
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3339593773082874702, guid: ef4752679e2986d40aac76fee49394e2, type: 3}
+      propertyPath: BaseMonsterCount
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3339593773082874702, guid: ef4752679e2986d40aac76fee49394e2, type: 3}
+      propertyPath: MonsterPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3339593773082874702, guid: ef4752679e2986d40aac76fee49394e2, type: 3}
+      propertyPath: MonsterPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 8593250951272464682, guid: be7b53fcce6f63f4ca8b3913d841dc97, type: 3}
+    - target: {fileID: 3339593773082874702, guid: ef4752679e2986d40aac76fee49394e2, type: 3}
+      propertyPath: MonsterPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 8593250951272464682, guid: 7c0420b9f4e8f654badbfe46a5bb83ee, type: 3}
+    - target: {fileID: 3339593773082874702, guid: ef4752679e2986d40aac76fee49394e2, type: 3}
+      propertyPath: MonsterPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 8593250951272464682, guid: 9013e6815ebe7e14e8b07a9740d2de9a, type: 3}
+    - target: {fileID: 3339593773082874702, guid: ef4752679e2986d40aac76fee49394e2, type: 3}
+      propertyPath: MonsterPrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 8593250951272464682, guid: 9013e6815ebe7e14e8b07a9740d2de9a, type: 3}
+    - target: {fileID: 3339593773082874702, guid: ef4752679e2986d40aac76fee49394e2, type: 3}
+      propertyPath: MonsterPrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 8593250951272464682, guid: 9013e6815ebe7e14e8b07a9740d2de9a, type: 3}
+    - target: {fileID: 3339593773082874702, guid: ef4752679e2986d40aac76fee49394e2, type: 3}
+      propertyPath: MonsterPrefabs.Array.data[5]
+      value: 
+      objectReference: {fileID: 8593250951272464682, guid: 9013e6815ebe7e14e8b07a9740d2de9a, type: 3}
+    - target: {fileID: 3339593773082874702, guid: ef4752679e2986d40aac76fee49394e2, type: 3}
+      propertyPath: MonsterPrefabs.Array.data[6]
+      value: 
+      objectReference: {fileID: 8593250951272464682, guid: 9013e6815ebe7e14e8b07a9740d2de9a, type: 3}
+    - target: {fileID: 3339593773082874702, guid: ef4752679e2986d40aac76fee49394e2, type: 3}
+      propertyPath: MonsterPrefabs.Array.data[7]
+      value: 
+      objectReference: {fileID: 8593250951272464682, guid: 9013e6815ebe7e14e8b07a9740d2de9a, type: 3}
+    - target: {fileID: 3339593773082874702, guid: ef4752679e2986d40aac76fee49394e2, type: 3}
+      propertyPath: MonsterPrefabs.Array.data[8]
+      value: 
+      objectReference: {fileID: 8593250951272464682, guid: 9013e6815ebe7e14e8b07a9740d2de9a, type: 3}
+    - target: {fileID: 3339593773082874702, guid: ef4752679e2986d40aac76fee49394e2, type: 3}
+      propertyPath: MonsterPrefabs.Array.data[9]
+      value: 
+      objectReference: {fileID: 8593250951272464682, guid: 9013e6815ebe7e14e8b07a9740d2de9a, type: 3}
+    - target: {fileID: 3339593773082874702, guid: ef4752679e2986d40aac76fee49394e2, type: 3}
+      propertyPath: MonsterPrefabs.Array.data[10]
+      value: 
+      objectReference: {fileID: 8593250951272464682, guid: 9013e6815ebe7e14e8b07a9740d2de9a, type: 3}
+    - target: {fileID: 3339593773082874702, guid: ef4752679e2986d40aac76fee49394e2, type: 3}
+      propertyPath: MonsterPrefabs.Array.data[11]
+      value: 
+      objectReference: {fileID: 8593250951272464682, guid: 9013e6815ebe7e14e8b07a9740d2de9a, type: 3}
+    - target: {fileID: 3339593774230404276, guid: ef4752679e2986d40aac76fee49394e2, type: 3}
       propertyPath: NumOfSlots
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3339593774230404276, guid: ef4752679e2986d40aac76fee49394e2, type: 3}
+      propertyPath: RewardGold
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3339593774230404276, guid: ef4752679e2986d40aac76fee49394e2, type: 3}
+      propertyPath: BaseMonsterCount
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3339593774230404276, guid: ef4752679e2986d40aac76fee49394e2, type: 3}
       propertyPath: MonsterPrefabs.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3339593774230404276, guid: ef4752679e2986d40aac76fee49394e2, type: 3}
       propertyPath: MonsterPrefabs.Array.data[1]
@@ -16383,7 +16479,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8113555632975270996, guid: ef4752679e2986d40aac76fee49394e2, type: 3}
       propertyPath: NumOfSlots
-      value: 5
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8113555632975270996, guid: ef4752679e2986d40aac76fee49394e2, type: 3}
+      propertyPath: RewardGold
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8113555632975270996, guid: ef4752679e2986d40aac76fee49394e2, type: 3}
+      propertyPath: MonsterAddValue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8113555632975270996, guid: ef4752679e2986d40aac76fee49394e2, type: 3}
+      propertyPath: BaseMonsterCount
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8113555632975270996, guid: ef4752679e2986d40aac76fee49394e2, type: 3}
       propertyPath: MonsterPrefabs.Array.size
@@ -16404,7 +16512,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6411866030269760052, guid: 9e6fbdc69cc88da44b893c2b5516a924, type: 3}
       propertyPath: gold
-      value: 2250
+      value: 750
       objectReference: {fileID: 0}
     - target: {fileID: 6411866030269760052, guid: 9e6fbdc69cc88da44b893c2b5516a924, type: 3}
       propertyPath: BGMKey
@@ -16412,7 +16520,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6411866030269760052, guid: 9e6fbdc69cc88da44b893c2b5516a924, type: 3}
       propertyPath: Income
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6411866030269760052, guid: 9e6fbdc69cc88da44b893c2b5516a924, type: 3}
       propertyPath: MainCamera

@@ -268,7 +268,7 @@ MonoBehaviour:
   Data: {fileID: 0}
   MaxHP: 100
   Atk: 1
-  AtkSpeed: 1
+  AtkSpeed: 100
   SearchRange: 5
   IsAlive: 0
 --- !u!1 &253743707931315032
@@ -1527,7 +1527,13 @@ SkinnedMeshRenderer:
   m_SkinnedMotionVectors: 1
   m_Mesh: {fileID: -6049393248465384088, guid: 19b3520048fec7345982be6761526df3, type: 3}
   m_Bones: []
-  m_BlendShapeWeights: []
+  m_BlendShapeWeights:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
   m_RootBone: {fileID: 0}
   m_AABB:
     m_Center: {x: -0.114526376, y: 0.03761228, z: 0.000000052154064}
@@ -5304,7 +5310,7 @@ Animator:
   m_GameObject: {fileID: 7830514032721618748}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: dd4802cc7972ecb4699ed0b29916793f, type: 3}
-  m_Controller: {fileID: 9100000, guid: 83a5db759c731c44485d2cec26bb8331, type: 2}
+  m_Controller: {fileID: 9100000, guid: e23f81f66cdf8e44395854ffb8ff9443, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
