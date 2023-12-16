@@ -138,6 +138,7 @@ namespace FC
 
             /* Audio Manager */
             yield return AudioManager.Instance.InitRoutine();
+            AudioManager.Instance.SetBGMVolume(0.5f);
 
             /* Effect Manager */
             yield return EffectManager.Instance.InitRoutine();
@@ -150,6 +151,10 @@ namespace FC
 
             // 글로벌 즉시 암전 해제
             UIManager.Instance.InstantFade(true);
+
+
+
+            AudioManager.Instance.SetBGM(BGMKey);
 
 
             IsInit = true;
