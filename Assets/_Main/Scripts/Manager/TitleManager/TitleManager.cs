@@ -170,7 +170,7 @@ namespace FC
 
             // Sound Setting Local Load
             // LocalLoadSoundSetting();
-            AudioManager.Instance.SetBGMVolume(0.2f);
+            AudioManager.Instance.SetBGMVolume(0.5f);
         }
 
 

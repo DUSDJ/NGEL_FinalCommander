@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2075809236906007092}
   - component: {fileID: 2075809236891804402}
   - component: {fileID: 2075809236892729326}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ChannelDust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4787,7 +4787,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 493834213
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -4831,7 +4831,7 @@ GameObject:
   - component: {fileID: 2075809236892752836}
   - component: {fileID: 2075809236891824616}
   - component: {fileID: 2252980979947040048}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Effect_MonsterDamaged
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4895,7 +4895,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 493834213
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -9653,6 +9653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5ec8c9c8a1dd904f87f1c33c36a75f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TextBox: {fileID: 0}
   ForceUseDuration: 0
   Duration: 0
   FollowTarget: {fileID: 0}
@@ -9669,7 +9670,7 @@ GameObject:
   - component: {fileID: 2075809236905989018}
   - component: {fileID: 2075809236891798212}
   - component: {fileID: 2075809236892733442}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ChannelRings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14436,7 +14437,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 493834213
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_RenderMode: 4
   m_MeshDistribution: 0
