@@ -6278,6 +6278,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3450070374911662930}
   - component: {fileID: 9094230224150179429}
+  - component: {fileID: 4883051286320130852}
   m_Layer: 3
   m_Name: Set Costume_02 SD Yuko
   m_TagString: Untagged
@@ -6324,6 +6325,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4883051286320130852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8868146960213979128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9be0f333c3ef5439ef0cfc056dc767, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UISound: 0
 --- !u!1 &8876869603634507077
 GameObject:
   m_ObjectHideFlags: 0

@@ -48,6 +48,7 @@ GameObject:
   m_Component:
   - component: {fileID: 253743706486531063}
   - component: {fileID: -2294217380352441309}
+  - component: {fileID: 2850204134255366958}
   m_Layer: 3
   m_Name: Hero_110
   m_TagString: Untagged
@@ -100,6 +101,19 @@ MonoBehaviour:
   AtkSpeed: 100
   SearchRange: 5
   IsAlive: 0
+--- !u!114 &2850204134255366958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253743706486531062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9be0f333c3ef5439ef0cfc056dc767, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UISound: 1
 --- !u!1 &253743707931315032
 GameObject:
   m_ObjectHideFlags: 0

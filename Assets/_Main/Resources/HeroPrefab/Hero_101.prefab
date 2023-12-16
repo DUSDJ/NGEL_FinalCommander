@@ -885,6 +885,7 @@ GameObject:
   m_Component:
   - component: {fileID: 253743706486531063}
   - component: {fileID: 2188076302900837117}
+  - component: {fileID: 4709828612010750346}
   m_Layer: 3
   m_Name: Hero_101
   m_TagString: Untagged
@@ -936,6 +937,19 @@ MonoBehaviour:
   AtkSpeed: 100
   SearchRange: 5
   IsAlive: 0
+--- !u!114 &4709828612010750346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253743706486531062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9be0f333c3ef5439ef0cfc056dc767, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UISound: 1
 --- !u!1 &404885851912713742
 GameObject:
   m_ObjectHideFlags: 0
@@ -4429,6 +4443,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5739476806478882827}
   - component: {fileID: 5739476806471419803}
+  - component: {fileID: 6138440747664265139}
   m_Layer: 3
   m_Name: Set Costume_02 SD Yuko
   m_TagString: Untagged
@@ -4475,6 +4490,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6138440747664265139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5739476806478853611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9be0f333c3ef5439ef0cfc056dc767, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UISound: 1
 --- !u!1 &5781810884552445190
 GameObject:
   m_ObjectHideFlags: 0

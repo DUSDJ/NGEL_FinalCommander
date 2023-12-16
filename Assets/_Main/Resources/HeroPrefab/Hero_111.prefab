@@ -3289,6 +3289,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5756814861342637060}
   - component: {fileID: 1802702404189791870}
+  - component: {fileID: 1329363037890289459}
   m_Layer: 3
   m_Name: Set Costume_01 SD Unity-Chan
   m_TagString: Untagged
@@ -3336,6 +3337,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1329363037890289459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4949315463624795838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9be0f333c3ef5439ef0cfc056dc767, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UISound: 0
 --- !u!1 &4974271570963132043
 GameObject:
   m_ObjectHideFlags: 0
