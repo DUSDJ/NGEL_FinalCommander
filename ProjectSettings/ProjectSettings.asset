@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: giantdice
-  productName: NGEL_FinalCommander
+  productName: FinalCommander
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -156,7 +156,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.giantdice.NGEL_FinalCommander
-    Standalone: com.giantdice.NGEL-FinalCommander
+    Standalone: com.giantdice.FinalCommander
   buildNumber:
     Standalone: 0
     iPhone: 0
@@ -274,7 +274,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: af7838a6a570bbe46b5a2998480794a4, type: 3}
+      m_Icon: {fileID: 2800000, guid: 67cc7aff35f699447956855788c24ab1, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
